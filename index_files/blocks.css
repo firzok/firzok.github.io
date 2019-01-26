@@ -1,0 +1,336 @@
+@media only screen and (min-width: 768px) and (max-width: 1037px) {
+    .simblaBlock.header1 .navbar-nav > li > a {
+        padding: 10px 6px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1920px) {
+    .simblaBlock.header1 .navbar-nav {
+        float: right;
+    }
+}
+
+
+.simblaBlock.header2 .navbar-nav > li > a {
+    padding: 10px 15px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1037px) {
+    .simblaBlock.header2 .navbar-nav > li > a {
+        padding: 10px 6px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .simblaBlock.header2 .navbar-nav > li > a {
+        padding: 10px 6px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1920px) {
+    .simblaBlock.header2 .navbar-nav {
+        float: right;
+    }
+}
+
+.simblaBlock.header3 .navbar-nav > li > a {
+    padding: 10px 15px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1037px) {
+    .simblaBlock.header3 .navbar-nav > li > a {
+        padding: 10px 6px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1920px) {
+    .simblaBlock.header3 .navbar-nav {
+        float: right;
+    }
+}
+
+.simblaBlock.header4 .navbar-nav > li > a {
+    padding: 10px 15px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1037px) {
+    .simblaBlock.header4 .navbar-navli > a {
+        padding: 10px 6px;
+    }
+
+    .navbar-default .navbar-collapse, .navbar-default .navbar-form {
+        border-color: #4D4D4D;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1920px) {
+    .simblaBlock.header4 .navbar-nav {
+        float: right;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1920px) {
+    .simblaBlock.header5 .nav,
+    .simblaBlock.header5 .nav > li {
+        float: none;
+        display: inline-block;
+        *display: inline; /* ie7 fix */
+        *zoom: 1; /* hasLayout ie7 trigger */
+        vertical-align: top;
+    }
+
+    .simblaBlock.header5 .navbar-collapse {
+        text-align: center;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1920px) {
+    .simblaBlock.header7 .nav,
+    .simblaBlock.header7 .nav > li {
+        float: none;
+        display: inline-block;
+        *display: inline; /* ie7 fix */
+        *zoom: 1; /* hasLayout ie7 trigger */
+        vertical-align: top;
+    }
+
+    .simblaBlock.header7 .navbar-collapse {
+        text-align: center;
+    }
+
+}
+
+.simblaBlock.header9 .navbar-nav > li > a {
+    padding: 10px 15px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1037px) {
+    .simblaBlock.header9 .navbar-nav > li > a {
+        padding: 10px 6px;
+    }
+
+    .simblaBlock.header9 img {
+        margin-top: 13px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .simblaBlock.header9 .navbar-nav {
+        padding-bottom: 20px !important;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1920px) {
+    .simblaBlock.header10 .nav,
+    .simblaBlock.header10 .nav > li {
+        float: none;
+        display: inline-block;
+        *display: inline; /* ie7 fix */
+        *zoom: 1; /* hasLayout ie7 trigger */
+        vertical-align: top;
+    }
+
+    .simblaBlock.header10 .navbar-collapse {
+        text-align: center;
+    }
+}
+
+.simblaBlock.content2 img {
+    padding: 0px;
+    border-radius: 250px;
+    width: 80%;
+}
+
+@media only screen and (max-width: 480px) {
+    .simblaBlock.content2 img {
+        width: 70%;
+        margin-left: 12%;
+    }
+}
+
+.simblaBlock.content4 img {
+    border-radius: 250px;
+    padding: 0px;
+    width: 80%;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1037px) {
+    .simblaBlock.content4 img {
+        width: 80%;
+        margin-left: 8%;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .simblaBlock.content4 img {
+        width: 50%;
+        margin-left: 25%;
+    }
+}
+
+.simblaBlock.content5 img {
+    padding: 0px;
+    border-radius: 250px;
+}
+
+@media only screen and (max-width: 480px) {
+    .simblaBlock.content5 img {
+        width: 70%;
+        margin-left: 12%;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .simblaBlock.content7 img {
+        margin-top: 30px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .simblaBlock.content8 h1 {
+        font-size: 24px;
+    }
+
+    .simblaBlock.content8 img {
+        margin-top: 20px;
+    }
+}
+
+@media only screen and (max-width: 1037px) {
+    .simblaBlock.content10 i.fa {
+        font-size: 15px;
+        line-height: 36px;
+        width: 36px;
+        height: 36px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .simblaBlock.content11 .iconElm {
+        text-align: left !important;
+    }
+}
+
+@media only screen and (max-width: 1037px) {
+    .simblaBlock.content12 i.fa {
+        font-size: 15px;
+        line-height: 36px;
+        width: 36px;
+        height: 36px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .simblaBlock.footer2 i.fa {
+        font-size: 14px;
+        line-height: 34px;
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .simblaBlock.footer3 i.fa {
+        font-size: 14px;
+        line-height: 34px;
+        width: 35px;
+        height: 35px;
+    }
+}
+
+.simblaBlock.module6 img {
+    padding: 0;
+    border-radius: 250px;
+    width: 80%;
+}
+
+@media only screen and (max-width: 480px) {
+    .simblaBlock.moudle6 img {
+        width: 70%;
+        margin-left: 12%;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .simblaBlock.slider1 .item {
+        height: 500px;
+        background-color: #777;
+    }
+
+    .simblaBlock.slider1 .carousel-inner > .item > img {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        min-width: 1278px;
+        height: 500px;
+        /*height: auto;
+        min-height: 500px;
+        max-height: 1000px;*/
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .simblaBlock.slider2 .carousel .item {
+        height: 500px;
+        background-color: #777;
+    }
+
+    .simblaBlock.slider2 .carousel-inner > .item > img {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        min-width: 1278px;
+        height: 500px;
+        /*height: auto;
+        min-height: 500px;
+        max-height: 1000px;*/
+    }
+}
+
+.simblaBlock.slider3 .carousel-control {
+    display: none;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1037px) {
+    .simblaBlock.slider3 .carousel-caption {
+        top: -10%;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .simblaBlock.slider3 .item {
+        height: 200px;
+        background-color: #777;
+    }
+
+    .simblaBlock.slider3 .carousel-inner > .item > img {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        min-width: 1278px;
+        height: 200px;
+        /*height: auto;
+        min-height: 200px;
+        max-height: 1000px;*/
+    }
+}
+
+.simblaBlock.contentBlock.content13 .fa, .simblaBlock.contentBlock.content29 .fa  {
+    margin-right: 300px;
+}
+
+.simblaBlock.footerBlock.footer10 .negative, .simblaBlock.footerBlock.footer9 .negative
+{
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}
+
+
+.simblaBlock.galleryBlock.gallery17 .fa, .simblaBlock.galleryBlock.gallery18 .fa {float: left;}
+
+.simblaBlock.moduleBlock.module7 .col-md-6 , .simblaBlock.moduleBlock.module9 .col-md-6 {padding: 0px;}
+
+
