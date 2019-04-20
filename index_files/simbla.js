@@ -1051,7 +1051,7 @@ function addCriteriaToQuery(q, cls, o) {
                                 val.setHours(24); // houre of tomorrow
                             }
                             if (i.attr('day-begin')) {
-                                val.setHours(0); // houre of tomorrow   
+                                val.setHours(0); // houre of tomorrow
                             }
                         } else if (i.is('.datetime-input') && val) {
                             val = i.datetimepicker('getDate')
@@ -1085,7 +1085,7 @@ function addCriteriaToQuery(q, cls, o) {
                                 val.setHours(24); // houre of tomorrow
                             }
                             if (i.attr('day-begin')) {
-                                val.setHours(0); // houre of tomorrow   
+                                val.setHours(0); // houre of tomorrow
                             }
                         } else if (i.is('select.select-pointer') && !val && i.attr('val') && i.find('option').length === 0)
                             val = i.attr('val')
@@ -4051,7 +4051,7 @@ $(function () {
         var ignoreFields = ["objectId", "createdAt", "updatedAt"];
         var ignoreTypes = ["Object", "GeoPoint"];
         var header = tr.closest('table').find('thead tr');
-        if (!obj) //create new object 
+        if (!obj) //create new object
         {
             obj = new(Simbla.Object.extend(tr.closest('.simbla-table').data('simbla-class')));
             tr.data('val', obj);
