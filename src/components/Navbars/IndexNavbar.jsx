@@ -123,42 +123,22 @@ class ComponentsNavbar extends React.Component {
 								</Col>
 							</Row>
 						</div>
-						<Nav navbar>
-							<NavItem className="p-0">
-								<NavLink
-									data-placement="bottom"
-									href="https://www.linkedin.com/in/firzok-nadeem/"
-									rel="noopener noreferrer"
-									target="_blank"
-									title="Add me on Twitter"
-								>
-									<i className="fab fa-linkedin" />
-									<p className="d-lg-none d-xl-none">Twitter</p>
-								</NavLink>
+
+						<Nav tag="nav">
+							<NavItem>
+								<NavLink href="#">Intro</NavLink>
 							</NavItem>
-							<NavItem className="p-0">
-								<NavLink
-									data-placement="bottom"
-									href="https://www.facebook.com/FirzokNadeem"
-									rel="noopener noreferrer"
-									target="_blank"
-									title="Contact me on Facebook"
-								>
-									<i className="fab fa-facebook-square" />
-									<p className="d-lg-none d-xl-none">Facebook</p>
-								</NavLink>
+							<NavItem>
+								<NavLink href="#">About me</NavLink>
 							</NavItem>
-							<NavItem className="p-0">
-								<NavLink
-									data-placement="bottom"
-									href="https://www.instagram.com/iFirzok"
-									rel="noopener noreferrer"
-									target="_blank"
-									title="Follow me on Instagram"
-								>
-									<i className="fab fa-instagram" />
-									<p className="d-lg-none d-xl-none">Instagram</p>
-								</NavLink>
+							<NavItem>
+								<NavLink href="#">Projects</NavLink>
+							</NavItem>
+							<NavItem>
+								<NavLink href="#">Work</NavLink>
+							</NavItem>
+							<NavItem>
+								<NavLink href="#">Contact</NavLink>
 							</NavItem>
 							<NavItem>
 								<Button
