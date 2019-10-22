@@ -1,13 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// reactstrap components
 import {
 	Button,
 	Collapse,
-	DropdownToggle,
-	DropdownMenu,
-	DropdownItem,
-	UncontrolledDropdown,
 	NavbarBrand,
 	Navbar,
 	NavItem,
@@ -17,6 +12,8 @@ import {
 	Row,
 	Col
 } from "reactstrap";
+
+import "../../assets/css/app.css";
 
 class ComponentsNavbar extends React.Component {
 	constructor(props) {
@@ -38,7 +35,7 @@ class ComponentsNavbar extends React.Component {
 			document.body.scrollTop > 99
 		) {
 			this.setState({
-				color: "bg-info"
+				color: "bg-info-semi-transparent"
 			});
 		} else if (
 			document.documentElement.scrollTop < 100 ||
@@ -69,6 +66,9 @@ class ComponentsNavbar extends React.Component {
 		document
 			.getElementById("download-section")
 			.scrollIntoView({ behavior: "smooth" });
+	};
+	scrollToAboutMe = () => {
+		document.getElementById("aboutme").scrollIntoView({ behavior: "smooth" });
 	};
 	render() {
 		return (
@@ -105,31 +105,14 @@ class ComponentsNavbar extends React.Component {
 						onExiting={this.onCollapseExiting}
 						onExited={this.onCollapseExited}
 					>
-						<div className="navbar-collapse-header">
-							<Row>
-								<Col className="collapse-brand" xs="6">
-									<a href="#pablo" onClick={e => e.preventDefault()}>
-										BLK•React
-									</a>
-								</Col>
-								<Col className="collapse-close text-right" xs="6">
-									<button
-										aria-expanded={this.state.collapseOpen}
-										className="navbar-toggler"
-										onClick={this.toggleCollapse}
-									>
-										<i className="tim-icons icon-simple-remove" />
-									</button>
-								</Col>
-							</Row>
-						</div>
-
-						<Nav tag="nav">
+						<Nav navbar>
 							<NavItem>
 								<NavLink href="#">Intro</NavLink>
 							</NavItem>
 							<NavItem>
-								<NavLink href="#">About me</NavLink>
+								<NavLink href="#" onClick={this.scrollToAboutMe}>
+									About me
+								</NavLink>
 							</NavItem>
 							<NavItem>
 								<NavLink href="#">Projects</NavLink>
@@ -144,7 +127,7 @@ class ComponentsNavbar extends React.Component {
 								<Button
 									className="nav-link d-none d-lg-block"
 									color="info"
-									// onClick={this.scrollToDownload}
+									onClick={this.scrollToDownload}
 								>
 									<i className="tim-icons icon-single-02" /> Log In
 								</Button>

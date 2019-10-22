@@ -1,0 +1,17 @@
+.bg-info-semi-transparent {
+	background-color: #1519489c !important;
+}
+
+.shadow-big {
+	box-shadow: 2px 8px 16px rgba(0, 0, 0, 0.877) !important;
+}
+
+.space-30 {
+	height: 30px;
+	display: block;
+}
+
+.project-icon {
+	font-size: 2rem;
+	color: white;
+}
