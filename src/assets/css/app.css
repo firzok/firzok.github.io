@@ -32,3 +32,25 @@
 .section-margin-top-50 {
 	margin-top: 50px;
 }
+
+.margin-20 {
+	margin: 20px;
+}
+
+.icon-spacing {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.square-right-big {
+	animation: move-left-right 15s infinite;
+	height: 400px;
+	width: 400px;
+	opacity: 0.4;
+	right: -5%;
+	transition: 0.5s ease-out;
+}
