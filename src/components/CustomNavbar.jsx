@@ -9,13 +9,10 @@ import {
 	NavLink,
 	Nav,
 	Container,
-	Row,
-	Col
+
 } from "reactstrap";
 
-import "../../assets/css/app.css";
-
-class ComponentsNavbar extends React.Component {
+class CustomNavbar extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -70,6 +67,9 @@ class ComponentsNavbar extends React.Component {
 	scrollToAboutMe = () => {
 		document.getElementById("aboutme").scrollIntoView({ behavior: "smooth" });
 	};
+	scrollToIntro = () => {
+		document.getElementById("intro").scrollIntoView({ behavior: "smooth" });
+	}
 	render() {
 		return (
 			<Navbar
@@ -80,15 +80,15 @@ class ComponentsNavbar extends React.Component {
 				<Container>
 					<div className="navbar-translate">
 						<NavbarBrand
-							data-placement="bottom"
+							// data-placement="bottom"
 							to="/"
-							rel="noopener noreferrer"
+							// rel="noopener noreferrer"
 							title="Firzok Nadeem"
 							tag={Link}
 						>
 							<span>Firzok Nadeem</span>
 						</NavbarBrand>
-						<button
+						{/* <button
 							aria-expanded={this.state.collapseOpen}
 							className="navbar-toggler navbar-toggler"
 							onClick={this.toggleCollapse}
@@ -96,7 +96,7 @@ class ComponentsNavbar extends React.Component {
 							<span className="navbar-toggler-bar bar1" />
 							<span className="navbar-toggler-bar bar2" />
 							<span className="navbar-toggler-bar bar3" />
-						</button>
+						</button> */}
 					</div>
 					<Collapse
 						className={"justify-content-end " + this.state.collapseOut}
@@ -107,7 +107,7 @@ class ComponentsNavbar extends React.Component {
 					>
 						<Nav navbar>
 							<NavItem>
-								<NavLink href="#">Intro</NavLink>
+								<NavLink href="#" onClick={this.scrollToIntro}>Intro</NavLink>
 							</NavItem>
 							<NavItem>
 								<NavLink href="#" onClick={this.scrollToAboutMe}>
@@ -140,4 +140,4 @@ class ComponentsNavbar extends React.Component {
 	}
 }
 
-export default ComponentsNavbar;
+export default CustomNavbar;

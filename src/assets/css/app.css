@@ -2,8 +2,12 @@
 	background-color: #1519489c !important;
 }
 
-.shadow-big {
-	box-shadow: 2px 8px 16px rgba(0, 0, 0, 0.877) !important;
+.shadow-20 {
+	box-shadow: 2px 8px 20px rgba(0, 0, 0, 0.877) !important;
+}
+
+.shadow-10 {
+	box-shadow: 2px 8px 10px rgba(0, 0, 0, 0.877) !important;
 }
 
 .space-30 {
@@ -11,7 +15,20 @@
 	display: block;
 }
 
+.space-90 {
+	height: 90px;
+	display: block;
+}
+
 .project-icon {
 	font-size: 2rem;
 	color: white;
+}
+
+.section-padding-20 {
+	padding: 20px;
+}
+
+.section-margin-top-50 {
+	margin-top: 50px;
 }
