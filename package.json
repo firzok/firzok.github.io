@@ -45,7 +45,9 @@
     "react-dom": "16.8.3",
     "react-router-dom": "4.3.1",
     "react-scripts": "2.1.5",
-    "reactstrap": "7.1.0"
+    "react-spinners-kit": "^1.9.0",
+    "reactstrap": "7.1.0",
+    "styled-components": "^4.4.0"
   },
   "scripts": {
     "start": "react-scripts start",

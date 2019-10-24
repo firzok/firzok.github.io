@@ -9,6 +9,7 @@ import {
 	NavLink,
 	Nav,
 	Container,
+	UncontrolledTooltip
 
 } from "reactstrap";
 
@@ -112,10 +113,13 @@ function CustomNavbar(props) {
 							<Button
 								className="nav-link d-none d-lg-block"
 								color="info"
-								onClick={scrollToDownload}
+								id="login"
 							>
 								<i className="tim-icons icon-single-02" /> Log In
-								</Button>
+							</Button>
+							<UncontrolledTooltip placement="bottom" target="login" delay={0}>
+								Coming Soon
+            				</UncontrolledTooltip>
 						</NavItem>
 					</Nav>
 				</Collapse>

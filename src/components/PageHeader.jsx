@@ -3,7 +3,7 @@ import React from "react";
 // reactstrap components
 import { Container } from "reactstrap";
 
-function PageHeader() {
+function PageHeader(props) {
 	return (
 		<div className="index-page page-header header-filter">
 			<div className="squares square1" />

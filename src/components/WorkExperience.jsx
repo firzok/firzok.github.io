@@ -8,7 +8,9 @@ import {
     Card,
     CardTitle,
     CardBody,
-    CardFooter
+    CardFooter,
+    CardHeader,
+    UncontrolledTooltip
 
 } from "reactstrap";
 
@@ -22,15 +24,28 @@ function WorkExperience(props) {
 
             <Container>
                 <h1 className="title">Work Experience</h1>
-                <div className="space-70" />
+                <div className="space-50" />
 
                 <div>
                     <Row>
                         <Col md="12">
-                            <Card className="card-coin card-plain shadow-10">
+                            <Card className="card-rounded card-plain card-shadow-10">
                                 <CardTitle className="content-center">
-                                    <div className="space-30" />
-                                    <h2 className="text-center">Work Experience 1</h2>
+                                    <div className="space-30 " />
+                                    <div class="d-flex justify-content-center">
+                                        <img
+                                            alt="Automotive Artificial Intelligence"
+                                            className="d-block content-center"
+                                            src={require("assets/img/aai.svg")}
+                                            style={{ width: "250px" }}
+                                            id="aai"
+                                        />
+                                        <UncontrolledTooltip placement="top" target="aai" delay={0}>
+                                            Automotive Artificial Intelligence
+            					        </UncontrolledTooltip>
+
+                                    </div>
+
                                 </CardTitle>
                                 <CardBody>
                                     <Row>
@@ -67,10 +82,23 @@ function WorkExperience(props) {
                     </Row>
                     <Row>
                         <Col md="12">
-                            <Card className="card-coin card-plain shadow-10">
+                            <Card className="card-rounded card-plain card-shadow-10">
                                 <CardTitle className="content-center">
-                                    <div className="space-30" />
-                                    <h2 className="text-center">Work Experience 1</h2>
+                                    <div className="space-30 " />
+                                    <div class="d-flex justify-content-center">
+                                        <img
+                                            alt="Bentley Systems"
+                                            className="d-block content-center"
+                                            src={require("assets/img/bentley.png")}
+                                            style={{ width: "250px" }}
+                                            id="bentley"
+                                        />
+                                        <UncontrolledTooltip placement="top" target="bentley" delay={0}>
+                                            Bentley Systems
+            					        </UncontrolledTooltip>
+
+                                    </div>
+
                                 </CardTitle>
                                 <CardBody>
                                     <Row>
@@ -107,10 +135,23 @@ function WorkExperience(props) {
                     </Row>
                     <Row>
                         <Col md="12">
-                            <Card className="card-coin card-plain shadow-10">
+                            <Card className="card-rounded card-plain card-shadow-10">
                                 <CardTitle className="content-center">
-                                    <div className="space-30" />
-                                    <h2 className="text-center">Work Experience 1</h2>
+                                    <div className="space-30 " />
+                                    <div class="d-flex justify-content-center">
+                                        <img
+                                            alt="Reveal Lab"
+                                            className="d-block content-center"
+                                            src={require("assets/img/reveal.png")}
+                                            style={{ width: "250px" }}
+                                            id="reveal"
+                                        />
+                                        <UncontrolledTooltip placement="top" target="reveal" delay={0}>
+                                            Reveal Lab
+            					        </UncontrolledTooltip>
+
+                                    </div>
+
                                 </CardTitle>
                                 <CardBody>
                                     <Row>
@@ -147,7 +188,7 @@ function WorkExperience(props) {
                     </Row>
                 </div>
                 {/* <div className="space-50" /> */}
-            </Container>
+            </Container >
         </div >
     );
 }
