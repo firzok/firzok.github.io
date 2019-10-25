@@ -5,7 +5,9 @@ import Footer from "components/Footer.jsx";
 import AboutMe from "components/AboutMe.jsx";
 import Projects from "components/Projects.jsx";
 import WorkExperience from "components/WorkExperience.jsx"
+import Contact from "components/Contact.jsx"
 import { DominoSpinner } from "react-spinners-kit";
+import Bounce from 'react-reveal/Bounce';
 
 function Index(props) {
 
@@ -43,9 +45,10 @@ function Index(props) {
 	}
 	else {
 		return (
+
 			<div>
+
 				<img alt="..." className="path" src={require("assets/img/blob.png")} />
-				<CustomNavbar />
 				<div className="wrapper">
 					<PageHeader className="content-center" />
 					<div className="main">
@@ -53,10 +56,13 @@ function Index(props) {
 						<AboutMe />
 						<Projects />
 						<WorkExperience />
+						<Contact />
 						<Footer />
 					</div>
 				</div>
+				<CustomNavbar />
 			</div>
+
 		)
 	}
 }

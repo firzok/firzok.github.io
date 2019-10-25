@@ -2,6 +2,7 @@ import React from "react";
 
 // reactstrap components
 import { Container } from "reactstrap";
+import Bounce from "react-reveal/Bounce";
 
 function PageHeader(props) {
 	return (
@@ -16,7 +17,9 @@ function PageHeader(props) {
 
 			<Container id="intro">
 				<div className="content-center brand">
-					<h1 className="h1-seo">Firzok Nadeem</h1>
+					<Bounce top>
+						<h1 className="h1-seo">Firzok Nadeem</h1>
+					</Bounce>
 					{/* <h3 className="d-none d-sm-block">
 							A fast learner whose ability to adapt to various cultures,
 							identifying and resolving bottlenecks have always been a striking

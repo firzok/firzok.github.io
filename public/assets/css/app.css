@@ -67,13 +67,17 @@
 	right: 50%;
 }
 
-.card-light-background {
-	background-color: white;
-	opacity: 0.95;
+.card-background {
+	background-color: #15194591;
 }
 
 .card-rounded {
 	border-radius: 20px;
+}
+
+.contact-icon {
+	width: 50px;
+	margin: 15px;
 }
 
 /* Demo CSS */
@@ -253,39 +257,6 @@
 	color: #333333;
 }
 
-.fixed-section {
-	top: 90px;
-	max-height: 80vh;
-	overflow: scroll;
-	position: sticky;
-}
-
-.fixed-section ul {
-	padding: 0;
-}
-
-.fixed-section ul li {
-	list-style: none;
-}
-
-.fixed-section li a {
-	font-size: 14px;
-	padding: 2px;
-	display: block;
-	color: #666666;
-}
-
-.fixed-section li a.active {
-	color: #00bbff;
-}
-
-.fixed-section.float {
-	position: fixed;
-	top: 100px;
-	width: 200px;
-	margin-top: 0;
-}
-
 .parallax .parallax-image {
 	width: 100%;
 	overflow: hidden;
@@ -354,13 +325,6 @@
 @media screen and (min-width: 991px) {
 	.lightbox .modal-dialog {
 		width: 960px;
-	}
-}
-
-@media (max-width: 991px) {
-	.fixed-section.affix {
-		position: relative;
-		margin-bottom: 100px;
 	}
 }
 
