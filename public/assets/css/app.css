@@ -80,6 +80,14 @@
 	margin: 15px;
 }
 
+.card-min-height {
+	min-height: 550px;
+}
+
+.card-title h2 {
+	min-height: 95px;
+}
+
 /* Demo CSS */
 .tim-row {
 	margin-bottom: 20px;

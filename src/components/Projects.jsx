@@ -39,35 +39,22 @@ function Projects(props) {
 						</Bounce>
 					</Col>
 				</Row>
-				<div className="space-90" />
+				<div className="space-70" />
 				<Row>
 					<Col md="4">
 						<Bounce left>
-							<Card className="card-coin card-plain shadow-10">
+							<Card className="card-coin card-plain shadow-10 card-min-height">
 								<CardTitle className="content-center text-center">
 									<div className="space-30" />
-									<h2>Project 1</h2>
-									<Button
-										className="btn-round btn-icon"
-										color="primary"
-
-									>
-										<i class="fab fa-apple project-icon"></i>
-									</Button>
-
+									<h2>Distributed Password Checker</h2>
+									<h4>Jan, 2019</h4>
 									<div className="space-30" />
 								</CardTitle>
 								<CardBody>
-
-									<Row>
-										<Col className="text-justify" md="12">
-											<span>Details</span>
-											<h5>
-												Detail of projects kghasd hgasdj gsa hasdg jasdg ajdg
-												asjd sagdj hajgsd agsdjghas
-												</h5>
-										</Col>
-									</Row>
+									<span>Details</span>
+									<h5>
+										As an Intern in Automotive Artificial Intelligence(AAI), Islamabad I along with a team worked on creating a rule based traffic simulation platform using Python. We were able to complete the project in 3 weeks.
+									</h5>
 								</CardBody>
 								<CardFooter className="text-center">
 									<Button
@@ -79,28 +66,25 @@ function Projects(props) {
 									</Button>
 									<UncontrolledTooltip placement="top" target="github1" delay={0}>
 										View on GitHub
-            					</UncontrolledTooltip>
+            						</UncontrolledTooltip>
 								</CardFooter>
 							</Card>
 						</Bounce>
 					</Col>
 					<Col md="4">
 						<Bounce top>
-							<Card className="card-coin card-plain shadow-10">
-								<CardTitle className="content-center">
+							<Card className="card-coin card-plain shadow-10 card-min-height">
+								<CardTitle className="content-center text-center">
 									<div className="space-30" />
-									<h2 className="text-center">Project 1</h2>
+									<h2 className="text-center">LeARn</h2>
+									<h4>Aug, 2018 - Aug, 2019</h4>
+									<div className="space-30" />
 								</CardTitle>
 								<CardBody>
-									<Row>
-										<Col className="text-justify" md="12">
-											<span>Details</span>
-											<h5>
-												Detail of projects kghasd hgasdj gsa hasdg jasdg ajdg
-												asjd sagdj hajgsd agsdjghas
-												</h5>
-										</Col>
-									</Row>
+									<span>Details</span>
+									<h5>
+										leARn is my Final Year Project that I am currently working on. It is an iOS based Augmented Reality application designed for children to help them improve their motivation, cognitive abilities and learning skills.
+									</h5>
 								</CardBody>
 								<CardFooter className="text-center">
 									<Button
@@ -112,28 +96,25 @@ function Projects(props) {
 									</Button>
 									<UncontrolledTooltip placement="top" target="github2" delay={0}>
 										View on GitHub
-            					</UncontrolledTooltip>
+            						</UncontrolledTooltip>
 								</CardFooter>
 							</Card>
 						</Bounce>
 					</Col>
 					<Col md="4">
 						<Bounce right>
-							<Card className="card-coin card-plain shadow-10">
-								<CardTitle className="content-center">
+							<Card className="card-coin card-plain shadow-10 card-min-height">
+								<CardTitle className="content-center text-center">
 									<div className="space-30" />
-									<h2 className="text-center">Project 1</h2>
+									<h2 className="text-center">Wheres My Class</h2>
+									<h4>Oct, 2018 - Dec, 2018</h4>
+									<div className="space-30" />
 								</CardTitle>
 								<CardBody>
-									<Row>
-										<Col className="text-justify" md="12">
-											<span>Details</span>
-											<h5>
-												Detail of projects kghasd hgasdj gsa hasdg jasdg ajdg
-												asjd sagdj hajgsd agsdjghas
-												</h5>
-										</Col>
-									</Row>
+									<span>Details</span>
+									<h5>
+										Wheres My Class is an Android Application designed specifically for students of my university to help them with their timetable. It notifies them about their upcoming class so they don't have to remember each and every class.
+									</h5>
 								</CardBody>
 								<CardFooter className="text-center">
 									<Button
@@ -145,40 +126,26 @@ function Projects(props) {
 									</Button>
 									<UncontrolledTooltip placement="top" target="github3" delay={0}>
 										View on GitHub
-            					</UncontrolledTooltip>
+            						</UncontrolledTooltip>
 								</CardFooter>
 							</Card>
 						</Bounce>
 					</Col>
-				</Row>
-				<Row>
+
 					<Col md="4">
 						<Bounce left>
-							<Card className="card-coin card-plain shadow-10">
+							<Card className="card-coin card-plain shadow-10 card-min-height">
 								<CardTitle className="content-center text-center">
 									<div className="space-30" />
-									<h2>Project 1</h2>
-									<Button
-										className="btn-round btn-icon"
-										color="primary"
-
-									>
-										<i class="fab fa-apple project-icon"></i>
-									</Button>
-
+									<h2>Decision Making System</h2>
+									<h4></h4>
 									<div className="space-30" />
 								</CardTitle>
 								<CardBody>
-
-									<Row>
-										<Col className="text-justify" md="12">
-											<span>Details</span>
-											<h5>
-												Detail of projects kghasd hgasdj gsa hasdg jasdg ajdg
-												asjd sagdj hajgsd agsdjghas
-												</h5>
-										</Col>
-									</Row>
+									<span>Details</span>
+									<h5>
+										As an Intern in Automotive Artificial Intelligence(AAI), Islamabad I along with a team worked on creating a rule based traffic simulation platform using Python. We were able to complete the project in 3 weeks.
+									</h5>
 								</CardBody>
 								<CardFooter className="text-center">
 									<Button
@@ -190,28 +157,25 @@ function Projects(props) {
 									</Button>
 									<UncontrolledTooltip placement="top" target="github4" delay={0}>
 										View on GitHub
-            					</UncontrolledTooltip>
+            						</UncontrolledTooltip>
 								</CardFooter>
 							</Card>
 						</Bounce>
 					</Col>
 					<Col md="4">
 						<Bounce top>
-							<Card className="card-coin card-plain shadow-10">
-								<CardTitle className="content-center">
+							<Card className="card-coin card-plain shadow-10 card-min-height">
+								<CardTitle className="content-center text-center">
 									<div className="space-30" />
-									<h2 className="text-center">Project 1</h2>
+									<h2 className="text-center">F-16 Path Finder</h2>
+									<h4></h4>
+									<div className="space-30" />
 								</CardTitle>
 								<CardBody>
-									<Row>
-										<Col className="text-justify" md="12">
-											<span>Details</span>
-											<h5>
-												Detail of projects kghasd hgasdj gsa hasdg jasdg ajdg
-												asjd sagdj hajgsd agsdjghas
-												</h5>
-										</Col>
-									</Row>
+									<span>Details</span>
+									<h5>
+										leARn is my Final Year Project that I am currently working on. It is an iOS based Augmented Reality application designed for children to help them improve their motivation, cognitive abilities and learning skills.
+									</h5>
 								</CardBody>
 								<CardFooter className="text-center">
 									<Button
@@ -223,28 +187,25 @@ function Projects(props) {
 									</Button>
 									<UncontrolledTooltip placement="top" target="github5" delay={0}>
 										View on GitHub
-            					</UncontrolledTooltip>
+            						</UncontrolledTooltip>
 								</CardFooter>
 							</Card>
 						</Bounce>
 					</Col>
 					<Col md="4">
 						<Bounce right>
-							<Card className="card-coin card-plain shadow-10">
-								<CardTitle className="content-center">
+							<Card className="card-coin card-plain shadow-10 card-min-height">
+								<CardTitle className="content-center text-center">
 									<div className="space-30" />
-									<h2 className="text-center">Project 1</h2>
+									<h2 className="text-center">Wheres My Class</h2>
+									<h4>Oct, 2018 - Dec, 2018</h4>
+									<div className="space-30" />
 								</CardTitle>
 								<CardBody>
-									<Row>
-										<Col className="text-justify" md="12">
-											<span>Details</span>
-											<h5>
-												Detail of projects kghasd hgasdj gsa hasdg jasdg ajdg
-												asjd sagdj hajgsd agsdjghas
-												</h5>
-										</Col>
-									</Row>
+									<span>Details</span>
+									<h5>
+										Wheres My Class is an Android Application designed specifically for students of my university to help them with their timetable. It notifies them about their upcoming class so they don't have to remember each and every class.
+									</h5>
 								</CardBody>
 								<CardFooter className="text-center">
 									<Button
@@ -256,40 +217,26 @@ function Projects(props) {
 									</Button>
 									<UncontrolledTooltip placement="top" target="github6" delay={0}>
 										View on GitHub
-            					</UncontrolledTooltip>
+            						</UncontrolledTooltip>
 								</CardFooter>
 							</Card>
 						</Bounce>
 					</Col>
-				</Row>
-				<Row>
+
 					<Col md="4">
 						<Bounce left>
-							<Card className="card-coin card-plain shadow-10">
+							<Card className="card-coin card-plain shadow-10 card-min-height">
 								<CardTitle className="content-center text-center">
 									<div className="space-30" />
-									<h2>Project 1</h2>
-									<Button
-										className="btn-round btn-icon"
-										color="primary"
-
-									>
-										<i class="fab fa-apple project-icon"></i>
-									</Button>
-
+									<h2>Rule based traffic simulation</h2>
+									<h4>Jan, 2019</h4>
 									<div className="space-30" />
 								</CardTitle>
 								<CardBody>
-
-									<Row>
-										<Col className="text-justify" md="12">
-											<span>Details</span>
-											<h5>
-												Detail of projects kghasd hgasdj gsa hasdg jasdg ajdg
-												asjd sagdj hajgsd agsdjghas
-												</h5>
-										</Col>
-									</Row>
+									<span>Details</span>
+									<h5>
+										As an Intern in Automotive Artificial Intelligence(AAI), Islamabad I along with a team worked on creating a rule based traffic simulation platform using Python. We were able to complete the project in 3 weeks.
+									</h5>
 								</CardBody>
 								<CardFooter className="text-center">
 									<Button
@@ -301,28 +248,25 @@ function Projects(props) {
 									</Button>
 									<UncontrolledTooltip placement="top" target="github7" delay={0}>
 										View on GitHub
-            					</UncontrolledTooltip>
+            						</UncontrolledTooltip>
 								</CardFooter>
 							</Card>
 						</Bounce>
 					</Col>
 					<Col md="4">
 						<Bounce top>
-							<Card className="card-coin card-plain shadow-10">
-								<CardTitle className="content-center">
+							<Card className="card-coin card-plain shadow-10 card-min-height">
+								<CardTitle className="content-center text-center">
 									<div className="space-30" />
-									<h2 className="text-center">Project 1</h2>
+									<h2 className="text-center">leARn</h2>
+									<h4>Aug, 2018 - Aug, 2019</h4>
+									<div className="space-30" />
 								</CardTitle>
 								<CardBody>
-									<Row>
-										<Col className="text-justify" md="12">
-											<span>Details</span>
-											<h5>
-												Detail of projects kghasd hgasdj gsa hasdg jasdg ajdg
-												asjd sagdj hajgsd agsdjghas
-												</h5>
-										</Col>
-									</Row>
+									<span>Details</span>
+									<h5>
+										leARn is my Final Year Project that I am currently working on. It is an iOS based Augmented Reality application designed for children to help them improve their motivation, cognitive abilities and learning skills.
+									</h5>
 								</CardBody>
 								<CardFooter className="text-center">
 									<Button
@@ -334,28 +278,25 @@ function Projects(props) {
 									</Button>
 									<UncontrolledTooltip placement="top" target="github8" delay={0}>
 										View on GitHub
-            					</UncontrolledTooltip>
+            						</UncontrolledTooltip>
 								</CardFooter>
 							</Card>
 						</Bounce>
 					</Col>
 					<Col md="4">
 						<Bounce right>
-							<Card className="card-coin card-plain shadow-10">
-								<CardTitle className="content-center">
+							<Card className="card-coin card-plain shadow-10 card-min-height">
+								<CardTitle className="content-center text-center">
 									<div className="space-30" />
-									<h2 className="text-center">Project 1</h2>
+									<h2 className="text-center">Wheres My Class</h2>
+									<h4>Oct, 2018 - Dec, 2018</h4>
+									<div className="space-30" />
 								</CardTitle>
 								<CardBody>
-									<Row>
-										<Col className="text-justify" md="12">
-											<span>Details</span>
-											<h5>
-												Detail of projects kghasd hgasdj gsa hasdg jasdg ajdg
-												asjd sagdj hajgsd agsdjghas
-												</h5>
-										</Col>
-									</Row>
+									<span>Details</span>
+									<h5>
+										Wheres My Class is an Android Application designed specifically for students of my university to help them with their timetable. It notifies them about their upcoming class so they don't have to remember each and every class.
+									</h5>
 								</CardBody>
 								<CardFooter className="text-center">
 									<Button
@@ -367,15 +308,14 @@ function Projects(props) {
 									</Button>
 									<UncontrolledTooltip placement="top" target="github9" delay={0}>
 										View on GitHub
-            					</UncontrolledTooltip>
+            						</UncontrolledTooltip>
 								</CardFooter>
 							</Card>
 						</Bounce>
 					</Col>
 				</Row>
-
-			</Container>
-		</section>
+			</Container >
+		</section >
 	);
 
 }

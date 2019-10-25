@@ -67,6 +67,9 @@ function CustomNavbar(props) {
 	const scrollToWorkExperience = () => {
 		document.getElementById("workexperience").scrollIntoView({ behavior: "smooth" });
 	}
+	const scrollToContact = () => {
+		document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
+	}
 
 	return (
 		<Navbar
@@ -107,7 +110,7 @@ function CustomNavbar(props) {
 							<NavLink href="#" onClick={scrollToWorkExperience}>Work Experience</NavLink>
 						</NavItem>
 						<NavItem>
-							<NavLink href="#">Contact</NavLink>
+							<NavLink href="#" onClick={scrollToContact}>Contact</NavLink>
 						</NavItem>
 						<NavItem>
 							<Button
