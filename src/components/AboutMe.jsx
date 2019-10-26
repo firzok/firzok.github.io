@@ -16,9 +16,9 @@ function AboutMe(props) {
 			<Container>
 				<Bounce left>
 					<h1 className="title">About Me</h1>
-					<div className="space-70" />
 				</Bounce>
-
+				<hr className="line-info" style={{ width: "160px" }} />
+				<div className="space-50" />
 				<div>
 					<Row>
 
@@ -37,15 +37,12 @@ function AboutMe(props) {
 							<div className="typography-line">
 								<Bounce right>
 									<h2>
-										Hi, my name is Firzok Nadeem, I am a Software Engineer by
-										profession. I am currently doing Bachelors in Computer
-										Science from FAST National University of Computer and
-										Emerging Sciences, Islamabad, Pakistan. I have done various
-										projects on different technologies including iOS, Android,
-										Python, C++ and Java some of them are mentioned below. I
-										have also done Internships in International companies like
-										Automotive Artificial Intelligence and Bentley Systems both
-										located in Islamabad.
+										A fast learner whose ability to adapt to various
+										cultures, identifying and resolving bottlenecks
+										have always been a striking feature. I am born
+										to think outside the box. Deliverance greater
+										than expectancy is what I stand for, and believe
+										in.
 									</h2>
 								</Bounce>
 							</div>

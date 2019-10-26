@@ -6,6 +6,7 @@ import AboutMe from "components/AboutMe.jsx";
 import Projects from "components/Projects.jsx";
 import WorkExperience from "components/WorkExperience.jsx"
 import Contact from "components/Contact.jsx"
+import Education from "components/Education.jsx"
 import { DominoSpinner } from "react-spinners-kit";
 import Bounce from 'react-reveal/Bounce';
 
@@ -54,6 +55,7 @@ function Index(props) {
 					<div className="main">
 						<img alt="..." className="path" src={require("assets/img/path1.png")} />
 						<AboutMe />
+						<Education />
 						<Projects />
 						<WorkExperience />
 						<Contact />

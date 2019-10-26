@@ -29,8 +29,8 @@ function WorkExperience(props) {
                 <Bounce left>
                     <h1 className="title">Work Experience</h1>
                 </Bounce>
+                <hr className="line-info" style={{ width: "284px" }} />
                 <div className="space-50" />
-
                 <div>
                     <Row>
                         <Col md="12">

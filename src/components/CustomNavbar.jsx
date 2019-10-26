@@ -70,6 +70,9 @@ function CustomNavbar(props) {
 	const scrollToContact = () => {
 		document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
 	}
+	const scrollToEducation = () => {
+		document.getElementById("education").scrollIntoView({ behavior: "smooth" });
+	}
 
 	return (
 		<Navbar
@@ -104,6 +107,9 @@ function CustomNavbar(props) {
 							<NavLink href="#" onClick={scrollToAboutMe}>About Me</NavLink>
 						</NavItem>
 						<NavItem>
+							<NavLink href="#" onClick={scrollToEducation}>Education</NavLink>
+						</NavItem>
+						<NavItem>
 							<NavLink href="#" onClick={scrollToProject}>Projects</NavLink>
 						</NavItem>
 						<NavItem>
@@ -112,7 +118,7 @@ function CustomNavbar(props) {
 						<NavItem>
 							<NavLink href="#" onClick={scrollToContact}>Contact</NavLink>
 						</NavItem>
-						<NavItem>
+						{/* <NavItem>
 							<Button
 								className="nav-link d-none d-lg-block"
 								color="info"
@@ -123,7 +129,7 @@ function CustomNavbar(props) {
 							<UncontrolledTooltip placement="bottom" target="login" delay={0}>
 								Coming Soon
             				</UncontrolledTooltip>
-						</NavItem>
+						</NavItem> */}
 					</Nav>
 				</Collapse>
 			</Container>

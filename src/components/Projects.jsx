@@ -32,14 +32,12 @@ function Projects(props) {
 				src={require("assets/img/path3.png")}
 			/>
 			<Container>
-				<Row>
-					<Col md="4">
-						<Bounce left>
-							<h1 className="title">Projects</h1>
-						</Bounce>
-					</Col>
-				</Row>
-				<div className="space-70" />
+
+				<Bounce left>
+					<h1 className="title">Projects</h1>
+				</Bounce>
+				<hr className="line-info" style={{ width: "140px" }} />
+				<div className="space-50" />
 				<Row>
 					<Col md="4">
 						<Bounce left>

@@ -14,6 +14,7 @@ export default function Contact(props) {
                 <Bounce left>
                     <h1 className="title">Get in touch</h1>
                 </Bounce>
+                <hr className="line-info" style={{ width: "205px" }} />
                 <div className="space-50" />
                 <div>
                     <Bounce right>
