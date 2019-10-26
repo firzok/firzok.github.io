@@ -8,11 +8,12 @@ import WorkExperience from "components/WorkExperience.jsx"
 import Contact from "components/Contact.jsx"
 import Education from "components/Education.jsx"
 import { DominoSpinner } from "react-spinners-kit";
-import Bounce from 'react-reveal/Bounce';
 
 function Index(props) {
 
 	const [pageLoading, setPageLoading] = useState(true)
+	const isMobile = window.innerWidth < 480;
+	const loaderSize = isMobile ? 350 : 700;
 
 	useEffect(() => {
 
@@ -36,19 +37,16 @@ function Index(props) {
 		return (
 			<div className="loader-pos-center">
 				<DominoSpinner
-					size={700}
+					size={loaderSize}
 					color="#479fd6"
 					loading={pageLoading}
-
 				/>
 			</div >
 		)
 	}
 	else {
 		return (
-
 			<div>
-
 				<img alt="..." className="path" src={require("assets/img/blob.png")} />
 				<div className="wrapper">
 					<PageHeader className="content-center" />

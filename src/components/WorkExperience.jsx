@@ -8,7 +8,6 @@ import {
     CardTitle,
     CardBody,
     CardFooter,
-    CardHeader,
     UncontrolledTooltip
 
 } from "reactstrap";
@@ -54,42 +53,60 @@ function WorkExperience(props) {
                                     </CardTitle>
 
                                     <CardBody>
-                                        <Row>
-                                            <Col className="text-justify" md="12">
-                                                <span>Position</span>
-                                                <h4>Intern</h4>
-                                            </Col>
-                                        </Row>
-                                        <Row>
-                                            <Col className="text-justify" md="12">
-                                                <span>Details</span>
-                                                <h5>
-                                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-												</h5>
-                                            </Col>
-                                        </Row>
+                                        <span>Position</span>
+                                        <h4>Platform Developer (Python)</h4>
+                                        <h4>Jul, 2019 - Present</h4>
+                                        <span>Details</span>
+                                        <h5>
+                                            Surveillance Team:<br />
+                                            As part of the Surveillance team I worked on a Micro Service-Based Architecture
+                                            to build a Surveillance System by using different hardware instruments like Walk-Through
+                                            Metal Detectors, Biometric Attendance System and CCTV Cameras etc.<br />
+                                            HRMS Team:<br />
+                                            As part of the HRMS team, I am working on the Front End using React.
+                                        </h5>
                                     </CardBody>
 
                                     <CardFooter className="text-center">
                                         <Button
-                                            className="btn-info btn-round btn-sm icon-spacing"
+                                            className="btn-info btn-round btn-sm"
                                             color="primary"
+                                            href="http://incline-ai.com/"
+                                            id="w1"
+                                        >
+                                            <i class="fas fa-globe project-icon" />
+                                        </Button>
+                                        <UncontrolledTooltip placement="top" target="w1" delay={0}>
+                                            View Website
+            						    </UncontrolledTooltip>
+                                        <Button
+                                            className="btn-info btn-round btn-sm"
+                                            color="primary"
+                                            href="https://www.linkedin.com/company/incline-artificial-intelligence/"
+                                            id="li1"
                                         >
                                             <i className="fab fa-linkedin project-icon" />
                                         </Button>
+                                        <UncontrolledTooltip placement="top" target="li1" delay={0}>
+                                            View on LinkedIn
+            						    </UncontrolledTooltip>
                                         <Button
-                                            className="btn-info btn-round btn-sm icon-spacing"
+                                            className="btn-info btn-round btn-sm"
                                             color="primary"
+                                            href="https://www.facebook.com/InclineAI/"
+                                            id="fb1"
                                         >
                                             <i className="fab fa-facebook-square project-icon" />
                                         </Button>
+                                        <UncontrolledTooltip placement="top" target="fb1" delay={0}>
+                                            View on Facebook
+            						    </UncontrolledTooltip>
                                     </CardFooter>
 
                                 </Card>
                             </Bounce>
                         </Col>
-                    </Row>
-                    <Row>
+
                         <Col md="12">
                             <Bounce left>
                                 <Card className="card-rounded card-plain card-shadow-10">
@@ -117,13 +134,18 @@ function WorkExperience(props) {
                                             <Col className="text-justify" md="12">
                                                 <span>Position</span>
                                                 <h4>Intern</h4>
+                                                <h4>Jan, 2019</h4>
                                             </Col>
                                         </Row>
                                         <Row>
                                             <Col className="text-justify" md="12">
                                                 <span>Details</span>
                                                 <h5>
-                                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                                    Working as an Intern in AAI was one of the best working experience.
+                                                    The environment, work and seniors were all very helpful and encouraged
+                                                    creativity and out of the box thinking. I worked in the Platform team
+                                                    there. I along with a team of 5 worked on a Rule based Traffic simulation
+                                                    that we completed in 3 weeks.
 												</h5>
                                             </Col>
                                         </Row>
@@ -131,17 +153,38 @@ function WorkExperience(props) {
 
                                     <CardFooter className="text-center">
                                         <Button
-                                            className="btn-info btn-round btn-sm icon-spacing"
+                                            className="btn-info btn-round btn-sm"
                                             color="primary"
+                                            href="https://www.automotive-ai.com/"
+                                            id="w2"
+                                        >
+                                            <i class="fas fa-globe project-icon" />
+                                        </Button>
+                                        <UncontrolledTooltip placement="top" target="w2" delay={0}>
+                                            View Website
+            						    </UncontrolledTooltip>
+                                        <Button
+                                            className="btn-info btn-round btn-sm"
+                                            color="primary"
+                                            href="https://www.linkedin.com/company/automotive-artificial-intelligence-aai-gmbh/"
+                                            id="li2"
                                         >
                                             <i className="fab fa-linkedin project-icon" />
                                         </Button>
-                                        <Button
-                                            className="btn-info btn-round btn-sm icon-spacing"
+                                        <UncontrolledTooltip placement="top" target="li2" delay={0}>
+                                            View on LinkedIn
+            						    </UncontrolledTooltip>
+                                        {/* <Button
+                                            className="btn-info btn-round btn-sm"
                                             color="primary"
+                                            href="https://www.facebook.com/InclineAI/"
+                                            id="fb2"
                                         >
                                             <i className="fab fa-facebook-square project-icon" />
                                         </Button>
+                                        <UncontrolledTooltip placement="top" target="fb2" delay={0}>
+                                            View on Facebook
+            						    </UncontrolledTooltip> */}
                                     </CardFooter>
 
                                 </Card>
@@ -174,13 +217,19 @@ function WorkExperience(props) {
                                             <Col className="text-justify" md="12">
                                                 <span>Position</span>
                                                 <h4>Intern</h4>
+                                                <h4>Jun, 2018 - Aug, 2018</h4>
                                             </Col>
                                         </Row>
                                         <Row>
                                             <Col className="text-justify" md="12">
                                                 <span>Details</span>
                                                 <h5>
-                                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                                    At Bentley, I worked as an Intern in the iModel Tools.
+                                                    I integrated Microsoft Rush which is an automated Package
+                                                    Manager for Node Applications. After its successful completion,
+                                                    I was able to write Python Automation scripts that generated Graphs
+                                                    based on the tests entered and passed by different developers
+                                                    working at Bentley in different departments.
 												</h5>
                                             </Col>
                                         </Row>
@@ -188,17 +237,38 @@ function WorkExperience(props) {
 
                                     <CardFooter className="text-center">
                                         <Button
-                                            className="btn-info btn-round btn-sm icon-spacing"
+                                            className="btn-info btn-round btn-sm"
                                             color="primary"
+                                            href="https://www.bentley.com/"
+                                            id="w3"
+                                        >
+                                            <i class="fas fa-globe project-icon" />
+                                        </Button>
+                                        <UncontrolledTooltip placement="top" target="w3" delay={0}>
+                                            View Website
+            						    </UncontrolledTooltip>
+                                        <Button
+                                            className="btn-info btn-round btn-sm"
+                                            color="primary"
+                                            href="https://www.linkedin.com/company/bentley-systems/"
+                                            id="li3"
                                         >
                                             <i className="fab fa-linkedin project-icon" />
                                         </Button>
+                                        <UncontrolledTooltip placement="top" target="li3" delay={0}>
+                                            View on LinkedIn
+            						    </UncontrolledTooltip>
                                         <Button
-                                            className="btn-info btn-round btn-sm icon-spacing"
+                                            className="btn-info btn-round btn-sm"
                                             color="primary"
+                                            href="https://www.facebook.com/pages/Bentley-Systems-Islamabad/304143156342593"
+                                            id="fb3"
                                         >
                                             <i className="fab fa-facebook-square project-icon" />
                                         </Button>
+                                        <UncontrolledTooltip placement="top" target="fb3" delay={0}>
+                                            View on Facebook
+            						    </UncontrolledTooltip>
                                     </CardFooter>
 
                                 </Card>
@@ -233,31 +303,43 @@ function WorkExperience(props) {
                                             <Col className="text-justify" md="12">
                                                 <span>Position</span>
                                                 <h4>Intern</h4>
+                                                <h4>May, 2017 - Jul, 2017</h4>
                                             </Col>
                                         </Row>
                                         <Row>
                                             <Col className="text-justify" md="12">
                                                 <span>Details</span>
                                                 <h5>
-                                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-												</h5>
+                                                    As an Intern in Reveal Lab, my task was to learn and implement different
+                                                    Artificial Intelligence and Machine Learning concepts.
+                                                </h5>
                                             </Col>
                                         </Row>
                                     </CardBody>
 
                                     <CardFooter className="text-center">
                                         <Button
-                                            className="btn-info btn-round btn-sm icon-spacing"
+                                            className="btn-info btn-round btn-sm"
                                             color="primary"
+                                            href="http://reveal.ml/"
+                                            id="w4"
                                         >
-                                            <i className="fab fa-linkedin project-icon" />
+                                            <i class="fas fa-globe project-icon" />
                                         </Button>
+                                        <UncontrolledTooltip placement="top" target="w4" delay={0}>
+                                            View Website
+            						    </UncontrolledTooltip>
                                         <Button
-                                            className="btn-info btn-round btn-sm icon-spacing"
+                                            className="btn-info btn-round btn-sm"
                                             color="primary"
+                                            href="https://www.facebook.com/revealai/"
+                                            id="fb4"
                                         >
                                             <i className="fab fa-facebook-square project-icon" />
                                         </Button>
+                                        <UncontrolledTooltip placement="top" target="fb4" delay={0}>
+                                            View on Facebook
+            						    </UncontrolledTooltip>
                                     </CardFooter>
 
                                 </Card>

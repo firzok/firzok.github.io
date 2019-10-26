@@ -25,7 +25,7 @@
 }
 
 .project-icon {
-	font-size: 2rem;
+	font-size: 1.75rem;
 	color: white;
 }
 
@@ -67,6 +67,16 @@
 	right: 50%;
 }
 
+@media only screen and (max-width: 480px) {
+	.loader-pos-center {
+		position: fixed;
+		top: 50%;
+		bottom: 50%;
+		left: 7%;
+		right: 50%;
+	}
+  }
+
 .card-background {
 	background-color: #15194591;
 }
@@ -87,6 +97,11 @@
 .card-title h2 {
 	min-height: 95px;
 }
+
+.footer {
+	border-color: #1a7edf;
+}
+
 
 /* Demo CSS */
 .tim-row {

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
-	Button,
 	Collapse,
 	NavbarBrand,
 	Navbar,
@@ -9,7 +8,8 @@ import {
 	NavLink,
 	Nav,
 	Container,
-	UncontrolledTooltip
+	Row,
+	Col
 
 } from "reactstrap";
 
@@ -50,11 +50,6 @@ function CustomNavbar(props) {
 	const onCollapseExited = () => {
 		setCollapseOut("")
 	};
-	const scrollToDownload = () => {
-		document
-			.getElementById("download-section")
-			.scrollIntoView({ behavior: "smooth" });
-	};
 	const scrollToAboutMe = () => {
 		document.getElementById("aboutme").scrollIntoView({ behavior: "smooth" });
 	};
@@ -79,18 +74,29 @@ function CustomNavbar(props) {
 			className={"fixed-top " + color}
 			color-on-scroll="100"
 			expand="lg"
+			style={{ background: "radial - gradient(ellipse at bottom, #292D61 30 %, #171941 80 %)" }}
 		>
 			<Container>
 				<div className="navbar-translate">
 					<NavbarBrand
-						// data-placement="bottom"
+						data-placement="bottom"
 						to="/"
-						// rel="noopener noreferrer"
+						rel="noopener noreferrer"
 						title="Firzok Nadeem"
 						tag={Link}
 					>
-						<span>Firzok Nadeem</span>
+						<span>Firzok Nadeem • </span>
+						Portfolio
 					</NavbarBrand>
+					<button
+						aria-expanded={collapseOpen}
+						className="navbar-toggler navbar-toggler"
+						onClick={toggleCollapse}
+					>
+						<span className="navbar-toggler-bar bar1" />
+						<span className="navbar-toggler-bar bar2" />
+						<span className="navbar-toggler-bar bar3" />
+					</button>
 				</div>
 				<Collapse
 					className={"justify-content-end " + collapseOut}
@@ -99,6 +105,24 @@ function CustomNavbar(props) {
 					onExiting={onCollapseExiting}
 					onExited={onCollapseExited}
 				>
+					<div className="navbar-collapse-header">
+						<Row>
+							<Col className="collapse-brand" xs="6">
+								<h3>
+									Firzok Nadeem
+                  				</h3>
+							</Col>
+							<Col className="collapse-close text-right" xs="6">
+								<button
+									aria-expanded={collapseOpen}
+									className="navbar-toggler"
+									onClick={toggleCollapse}
+								>
+									<i class="fa fa-times" aria-hidden="true"></i>
+								</button>
+							</Col>
+						</Row>
+					</div>
 					<Nav navbar>
 						<NavItem>
 							<NavLink href="#" onClick={scrollToIntro}>Intro</NavLink>
@@ -118,18 +142,113 @@ function CustomNavbar(props) {
 						<NavItem>
 							<NavLink href="#" onClick={scrollToContact}>Contact</NavLink>
 						</NavItem>
-						{/* <NavItem>
-							<Button
-								className="nav-link d-none d-lg-block"
-								color="info"
-								id="login"
+					</Nav>
+				</Collapse>
+			</Container>
+		</Navbar>
+	);
+
+
+	return (
+		<Navbar
+			className={"fixed-top " + color}
+			color-on-scroll="100"
+			expand="lg"
+		>
+			<Container>
+				<div className="navbar-translate">
+					<NavbarBrand
+						data-placement="bottom"
+						to="/"
+						rel="noopener noreferrer"
+						title="Designed and Coded by Creative Tim"
+						tag={Link}
+					>
+						<span>Firzok Nadeem  •  </span>
+						Portfolio
+			  </NavbarBrand>
+					<button
+						aria-expanded={collapseOpen}
+						className="navbar-toggler navbar-toggler"
+						onClick={toggleCollapse}
+					>
+						<span className="navbar-toggler-bar bar1" />
+						<span className="navbar-toggler-bar bar2" />
+						<span className="navbar-toggler-bar bar3" />
+					</button>
+				</div>
+				<Collapse
+					className={"justify-content-end " + collapseOut}
+					navbar
+					isOpen={collapseOpen}
+					onExiting={onCollapseExiting}
+					onExited={onCollapseExited}
+				>
+					<div className="navbar-collapse-header">
+						<Row>
+							<Col className="collapse-brand" xs="6">
+								<a href="#pablo" onClick={e => e.preventDefault()}>
+									BLK•React
+                  </a>
+							</Col>
+							<Col className="collapse-close text-right" xs="6">
+								<button
+									aria-expanded={collapseOpen}
+									className="navbar-toggler"
+									onClick={toggleCollapse}
+								>
+									<i class="fa fa-times" aria-hidden="true"></i>
+								</button>
+							</Col>
+						</Row>
+					</div>
+					<Nav navbar>
+						<NavItem className="p-0">
+							<NavLink
+								data-placement="bottom"
+								href="https://twitter.com/CreativeTim"
+								rel="noopener noreferrer"
+								target="_blank"
+								title="Follow us on Twitter"
 							>
-								<i className="tim-icons icon-single-02" /> Log In
-							</Button>
-							<UncontrolledTooltip placement="bottom" target="login" delay={0}>
-								Coming Soon
-            				</UncontrolledTooltip>
-						</NavItem> */}
+								<i className="fab fa-twitter" />
+								<p className="d-lg-none d-xl-none">Twitter</p>
+							</NavLink>
+						</NavItem>
+						<NavItem className="p-0">
+							<NavLink
+								data-placement="bottom"
+								href="https://www.facebook.com/CreativeTim"
+								rel="noopener noreferrer"
+								target="_blank"
+								title="Like us on Facebook"
+							>
+								<i className="fab fa-facebook-square" />
+								<p className="d-lg-none d-xl-none">Facebook</p>
+							</NavLink>
+						</NavItem>
+						<NavItem className="p-0">
+							<NavLink
+								data-placement="bottom"
+								href="https://www.instagram.com/CreativeTimOfficial"
+								rel="noopener noreferrer"
+								target="_blank"
+								title="Follow us on Instagram"
+							>
+								<i className="fab fa-instagram" />
+								<p className="d-lg-none d-xl-none">Instagram</p>
+							</NavLink>
+						</NavItem>
+						<NavItem>
+							<NavLink tag={Link} to="/">
+								Back to Kit
+				  </NavLink>
+						</NavItem>
+						<NavItem>
+							<NavLink href="https://github.com/creativetimofficial/blk-design-system-react/issues">
+								Have an issue?
+				  </NavLink>
+						</NavItem>
 					</Nav>
 				</Collapse>
 			</Container>
