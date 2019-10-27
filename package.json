@@ -30,10 +30,11 @@
   "bugs": {
     "url": "https://github.com/creativetimofficial/blk-design-system-react/issues"
   },
-  "homepage": "https://github.com/creativetimofficial/blk-design-system-react#readme",
+  "homepage": "https://github.com/firzok/firzok.github.io",
   "dependencies": {
     "chart.js": "2.7.3",
     "classnames": "2.2.6",
+    "gh-pages": "^2.1.1",
     "moment": "2.24.0",
     "node-sass": "4.11.0",
     "nouislider": "13.1.1",
@@ -52,6 +53,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
