@@ -7,8 +7,8 @@ import Index from "components/Index.jsx";
 ReactDOM.render(
 	<BrowserRouter>
 		<Switch>
-			<Route path="/home" render={props => <Index {...props} />} />
-			<Redirect from="/" to="/home" />
+			<Route path="/" render={props => <Index {...props} />} />
+			<Redirect from="/" to="/" />
 		</Switch>
 	</BrowserRouter>,
 	document.getElementById("root")
