@@ -1,6 +1,4 @@
 import React from "react";
-// react plugin used to create charts
-import { Line } from "react-chartjs-2";
 // reactstrap components
 import {
 	Button,
@@ -39,7 +37,7 @@ function Projects(props) {
 
 					<Col md="4">
 						<Bounce left>
-							<Card className="card-coin card-plain shadow-10 card-min-height">
+							<Card className="card-coin card-background shadow-10 card-min-height">
 								<CardTitle className="content-center text-center">
 									<div className="space-30" />
 									<h2>Flask Scheduler</h2>
@@ -77,7 +75,7 @@ function Projects(props) {
 
 					<Col md="4">
 						<Bounce left>
-							<Card className="card-coin card-plain shadow-10 card-min-height">
+							<Card className="card-coin card-background shadow-10 card-min-height">
 								<CardTitle className="content-center text-center">
 									<div className="space-30" />
 									<h2>Rule based traffic simulation</h2>
@@ -111,7 +109,7 @@ function Projects(props) {
 
 					<Col md="4">
 						<Bounce left>
-							<Card className="card-coin card-plain shadow-10 card-min-height">
+							<Card className="card-coin card-background shadow-10 card-min-height">
 								<CardTitle className="content-center text-center">
 									<div className="space-30" />
 									<h2>Firzok.github.io</h2>
@@ -143,7 +141,7 @@ function Projects(props) {
 
 					<Col md="4">
 						<Bounce top>
-							<Card className="card-coin card-plain shadow-10 card-min-height">
+							<Card className="card-coin card-background shadow-10 card-min-height">
 								<CardTitle className="content-center text-center">
 									<div className="space-30" />
 									<h2 className="text-center">LeARn</h2>
@@ -178,7 +176,7 @@ function Projects(props) {
 
 					<Col md="4">
 						<Bounce right>
-							<Card className="card-coin card-plain shadow-10 card-min-height">
+							<Card className="card-coin card-background shadow-10 card-min-height">
 								<CardTitle className="content-center text-center">
 									<div className="space-30" />
 									<h2 className="text-center">Wheres My Class</h2>
@@ -213,7 +211,7 @@ function Projects(props) {
 
 					<Col md="4">
 						<Bounce left>
-							<Card className="card-coin card-plain shadow-10 card-min-height">
+							<Card className="card-coin card-background shadow-10 card-min-height">
 								<CardTitle className="content-center text-center">
 									<div className="space-30" />
 									<h2>Distributed Password Checker</h2>
@@ -247,7 +245,7 @@ function Projects(props) {
 
 					<Col md="4">
 						<Bounce top>
-							<Card className="card-coin card-plain shadow-10 card-min-height">
+							<Card className="card-coin card-background shadow-10 card-min-height">
 								<CardTitle className="content-center text-center">
 									<div className="space-30" />
 									<h2 className="text-center">Timetable Scheduler</h2>

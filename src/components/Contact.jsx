@@ -11,9 +11,7 @@ export default function Contact(props) {
     return (
         <div className="section section-typo section-padding-20" id="contact">
             <div className="squares square4" />
-            <div className="squares square5" />
             <div className="squares square6 shadow-10" />
-            <div className="squares square5" />
             <Container>
                 <Bounce left>
                     <h1 className="title">Get in touch</h1>
@@ -23,7 +21,6 @@ export default function Contact(props) {
                 <div>
                     <Bounce right>
                         <Row>
-
                             <a href="mailto:firzok.nadeem@gmail.com" id="mail">
                                 <img
                                     alt="..."

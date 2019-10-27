@@ -34,7 +34,7 @@ function WorkExperience(props) {
                     <Row>
                         <Col md="12">
                             <Bounce right>
-                                <Card className="card-rounded card-plain card-shadow-10">
+                                <Card className="card-rounded card-shadow-10 card-background">
 
                                     <CardTitle className="content-center">
                                         <div className="space-30 " />
@@ -109,7 +109,7 @@ function WorkExperience(props) {
 
                         <Col md="12">
                             <Bounce left>
-                                <Card className="card-rounded card-plain card-shadow-10">
+                                <Card className="card-rounded card-shadow-10 card-background">
 
                                     <CardTitle className="content-center">
                                         <div className="space-30 " />
@@ -191,10 +191,13 @@ function WorkExperience(props) {
                             </Bounce>
                         </Col>
                     </Row>
+
+                    <img alt="..." className="path" src={require("assets/img/path5.png")} style={{ width: "900px" }} />
+
                     <Row>
                         <Col md="12">
                             <Bounce right>
-                                <Card className="card-rounded card-plain card-shadow-10">
+                                <Card className="card-rounded card-shadow-10 card-background">
 
                                     <CardTitle className="content-center">
                                         <div className="space-30 " />
@@ -278,7 +281,7 @@ function WorkExperience(props) {
                     <Row>
                         <Col md="12">
                             <Bounce left>
-                                <Card className="card-rounded card-plain card-shadow-10">
+                                <Card className="card-rounded card-shadow-10 card-background">
 
                                     <CardTitle className="content-center">
                                         <div className="space-30 " />

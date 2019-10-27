@@ -19,10 +19,6 @@ function Education(props) {
         <div className="section section-typo section-padding-20" id="education">
             <div className="squares square3" />
             <div className="squares square7" />
-            <div className="squares square5" />
-            <div className="squares square6 shadow-10" />
-            <div className="squares square4" />
-            <div className="squares square5" />
 
             <Container>
                 <Bounce left>
@@ -34,7 +30,7 @@ function Education(props) {
                     <Row>
                         <Col md="12">
                             <Bounce right>
-                                <Card className="card-rounded card-plain card-shadow-10">
+                                <Card className="card-rounded card-background card-shadow-10">
                                     <Bounce top>
                                         <CardTitle className="content-center">
                                             <div className="space-30 " />

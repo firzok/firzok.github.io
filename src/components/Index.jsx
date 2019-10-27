@@ -55,8 +55,17 @@ function Index(props) {
 						<AboutMe />
 						<Education />
 						<Projects />
+						<div className="squares square-1" />
+						<div className="squares square-2" />
+						<div className="squares square-5" />
+						<img alt="..." className="path" src={require("assets/img/path3.png")} />
+						<div className="squares square-4" />
+						<div className="squares square-6" />
 						<WorkExperience />
+						<div className="squares square-2" />
+						<div className="squares square-3" />
 						<Contact />
+						<div className="squares square5" />
 						<Footer />
 					</div>
 				</div>
