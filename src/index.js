@@ -13,3 +13,5 @@ ReactDOM.render(
 	</BrowserRouter>,
 	document.getElementById("root")
 );
+// For deployment see
+// https://medium.com/swlh/deploying-react-apps-to-github-pages-on-master-branch-creating-a-user-site-bc96c2a37dc8

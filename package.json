@@ -1,8 +1,9 @@
 {
   "name": "blk-design-system-react",
   "version": "1.0.0",
-  "description": "React version of BLK Design System by Creative Tim",
+  "description": "Firzok Nadeems Portfolio",
   "main": "index.js",
+  "homepage": "https://firzok.github.io",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/creativetimofficial/blk-design-system-react.git"
@@ -30,7 +31,6 @@
   "bugs": {
     "url": "https://github.com/creativetimofficial/blk-design-system-react/issues"
   },
-  "homepage": "https://github.com/firzok/firzok.github.io",
   "dependencies": {
     "chart.js": "2.7.3",
     "classnames": "2.2.6",
@@ -54,7 +54,7 @@
   "scripts": {
     "start": "react-scripts start",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -b master -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
