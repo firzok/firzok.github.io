@@ -1,7 +1,6 @@
 import React from "react";
 import {
   Container,
-  Alert
 } from "reactstrap";
 
 function Footer(props) {
