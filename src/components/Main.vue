@@ -7,7 +7,6 @@
             <div style="height: 6000px; position: relative">
                 <Intro :proportion="proportion" />
             </div>
-            hello
         </div>
     </div>
 </template>

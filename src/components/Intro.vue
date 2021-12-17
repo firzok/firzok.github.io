@@ -15,18 +15,19 @@
                 </div>
             </div>
             <img src="../assets/codeScreen.jpg" alt="Coding screen" />
-            <!-- <div class="text-bottom">
-            <div :style="secondSectionInterpolator.bottomText(proportion)">
-                <span>
-                    I am a Software Engineer based in Germany. National and
-                    international customers have relied on me for development,
-                    design, and management of their digital products. I also
-                    work as a freelancer from time to time, I works also with
-                    web agencies, companies, startups and individuals to create
-                    a blueprint for the digital business.
-                </span>
+            <div class="text-bottom">
+                <div>
+                    <span>
+                        I am a Software Engineer based in Germany. National and
+                        international customers have relied on me for
+                        development, design, and management of their digital
+                        products. I also work as a freelancer from time to time,
+                        I works also with web agencies, companies, startups and
+                        individuals to create a blueprint for the digital
+                        business.
+                    </span>
+                </div>
             </div>
-        </div> -->
         </div>
     </div>
 </template>
@@ -55,12 +56,12 @@ export default {
     position: sticky;
     top: 0;
     padding: 5%;
+    border-radius: 7px;
 
     img {
         width: 54rem;
         position: relative;
         opacity: 0.5;
-        z-index: 1;
     }
 }
 
