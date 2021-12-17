@@ -25,7 +25,7 @@ export default {
     color: $white;
     background-color: $grey;
 
-    width: 13vw;
+    max-width: 13vw;
     float: left;
     position: fixed;
     z-index: 1;

@@ -27,11 +27,12 @@ export const secondSectionInterpolator = {
 
     highlights(proportion) {
 
-        if (proportion > 2.4 && proportion < 4) {
-            return { 'animation-delay': `calc(${4 - proportion} * -1s)` };
+        if (proportion > 2 && proportion < 4) {
+            console.log("delay", (proportion - 2) * -1);
+            return { 'animation-delay': `calc(${proportion-2} * -1.5s)` };
         } else if (proportion > 2.4) {
             return {
-                'animation-delay': `calc(${proportion * -2})`,
+                'animation-delay': `calc(${proportion-2} * -1.5s)`,
             };
         }
     },

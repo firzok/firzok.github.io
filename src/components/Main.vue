@@ -1,12 +1,14 @@
 <template>
     <div ref="appRef" id="container" class="main">
-        <div ref="welcomeRef" style="height: 6000px; position: relative">
-            <Welcome :proportion="proportion" />
+        <div class="components">
+            <div ref="welcomeRef" style="height: 6000px; position: relative">
+                <Welcome :proportion="proportion" />
+            </div>
+            <div style="height: 6000px; position: relative">
+                <Intro :proportion="proportion" />
+            </div>
+            hello
         </div>
-        <div style="height: 4000px; position: relative">
-            <Intro :proportion="proportion" />
-        </div>
-        hello
     </div>
 </template>
 
@@ -56,9 +58,14 @@ export default {
 };
 </script>
 
-<style>
+<style scoped lang="scss">
 .main {
     height: 100vh;
     margin-left: 18vw;
+
+    .components {
+        max-width: 1100px;
+        margin: 0 auto;
+    }
 }
 </style>

@@ -43,6 +43,7 @@ export default {
     height: 100vh;
     position: sticky;
     top: 0;
+    padding: 5%;
 }
 
 @keyframes showTopText {
@@ -79,7 +80,6 @@ export default {
     position: relative;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 90vmin;
 }
 .animated-title > div {
     height: 50%;

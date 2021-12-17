@@ -1,7 +1,12 @@
 <template>
     <div class="intro">
+        <img src="../assets/codeScreen.jpg" alt="Coding screen" />
+
         <div class="animate">
-            <div class="text-top">I build things to make life easier.</div>
+            <div class="text-top">
+                I build digital products to make life easier.
+            </div>
+            <div class="text-middle">I am a</div>
             <div class="text-highlights">
                 <div :style="secondSectionInterpolator.highlights(proportion)">
                     <span>Software Engineer</span>
@@ -44,32 +49,41 @@ export default {
 
 <style scoped lang="scss">
 .intro {
-    color: white;
-    background-color: $black;
+    color: black;
+    background-color: white;
 
     height: 100vh;
     position: sticky;
     top: 0;
+    padding: 5%;
+
+    img {
+        width: 30vw;
+        position: absolute;
+        bottom: 8rem;
+        left: 10%;
+        opacity: 0.4;
+    }
 }
 
 @keyframes showHighlights {
     0% {
-        transform: translate3d(0, 120%, 0);
+        transform: translate3d(0, -100%, 0);
     }
     20% {
-        transform: translate3d(0, 60%, 0);
+        transform: translate3d(0, -80%, 0);
     }
     40% {
-        transform: translate3d(0, 20%, 0);
-    }
-    60% {
-        transform: translate3d(0, -20%, 0);
-    }
-    80% {
         transform: translate3d(0, -60%, 0);
     }
+    60% {
+        transform: translate3d(0, -40%, 0);
+    }
+    80% {
+        transform: translate3d(0, -20%, 0);
+    }
     100% {
-        transform: translate3d(0, -200%, 0);
+        transform: translate3d(0, -5%, 0);
     }
 }
 @keyframes showBottomText {
@@ -82,27 +96,30 @@ export default {
 }
 .animate {
     text-align: center;
-    color: $white;
+    color: $black;
     height: 80vmin;
     left: 50%;
     position: relative;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 90vmin;
 }
 .animate > .text-top {
     font-size: 5rem;
     text-align: left;
-    border-bottom: 1vmin solid $white;
+    margin-bottom: 5vh;
+}
+.animate > .text-middle {
+    font-size: 4rem;
+    text-align: right;
+    margin-bottom: 5vh;
 }
 .animate > div {
-    height: 50%;
     overflow: hidden;
     position: relative;
     width: 100%;
 }
 .animate > div div {
-    font-size: 12vmin;
+    font-size: 7rem;
     padding: 2vmin 0;
     position: relative;
 }
@@ -110,7 +127,8 @@ export default {
     display: block;
 }
 .animate > div.text-highlights {
-    bottom: 0;
+    top: 0;
+    height: 9rem;
 }
 .animate > div.text-highlights div {
     animation: showHighlights 2s linear;
@@ -120,7 +138,7 @@ export default {
     animation-iteration-count: 1;
     animation-fill-mode: both;
 
-    top: 0;
+    bottom: 0;
     transform: translate3d(0, 120%, 0);
 }
 

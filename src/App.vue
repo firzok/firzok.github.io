@@ -20,7 +20,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 * {
     margin: 0;
     padding: 0;
@@ -32,5 +32,6 @@ export default {
 }
 body {
     margin: 0px;
+    background-color: $black;
 }
 </style>
