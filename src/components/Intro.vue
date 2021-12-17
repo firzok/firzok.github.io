@@ -1,7 +1,5 @@
 <template>
     <div class="intro">
-        <img src="../assets/codeScreen.jpg" alt="Coding screen" />
-
         <div class="animate">
             <div class="text-top">
                 I build digital products to make life easier.
@@ -9,13 +7,14 @@
             <div class="text-middle">I am a</div>
             <div class="text-highlights">
                 <div :style="secondSectionInterpolator.highlights(proportion)">
-                    <span>Software Engineer</span>
+                    <span class="highlight">Software Engineer</span>
                     <span>Developer</span>
                     <span>UX/UI Designer</span>
                     <span>Freelancer</span>
                     <span>Student</span>
                 </div>
             </div>
+            <img src="../assets/codeScreen.jpg" alt="Coding screen" />
             <!-- <div class="text-bottom">
             <div :style="secondSectionInterpolator.bottomText(proportion)">
                 <span>
@@ -58,11 +57,10 @@ export default {
     padding: 5%;
 
     img {
-        width: 30vw;
-        position: absolute;
-        bottom: 8rem;
-        left: 10%;
-        opacity: 0.4;
+        width: 54rem;
+        position: relative;
+        opacity: 0.5;
+        z-index: 1;
     }
 }
 
@@ -100,13 +98,13 @@ export default {
     height: 80vmin;
     left: 50%;
     position: relative;
-    top: 50%;
+    top: 40%;
     transform: translate(-50%, -50%);
 }
 .animate > .text-top {
     font-size: 5rem;
     text-align: left;
-    margin-bottom: 5vh;
+    margin-bottom: 13vh;
 }
 .animate > .text-middle {
     font-size: 4rem;
@@ -129,6 +127,11 @@ export default {
 .animate > div.text-highlights {
     top: 0;
     height: 9rem;
+
+    .highlight {
+        background-color: $grey;
+        color: #fff;
+    }
 }
 .animate > div.text-highlights div {
     animation: showHighlights 2s linear;
