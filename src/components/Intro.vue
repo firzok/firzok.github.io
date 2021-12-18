@@ -14,7 +14,7 @@
                     <span>Student</span>
                 </div>
             </div>
-            <img src="../assets/codeScreen.jpg" alt="Coding screen" />
+            <img src="../assets/codeScreen1.png" alt="Coding screen" />
             <div class="text-bottom">
                 <div>
                     <span>
@@ -61,7 +61,7 @@ export default {
     img {
         width: 54rem;
         position: relative;
-        opacity: 0.5;
+        opacity: 0.8;
     }
 }
 
