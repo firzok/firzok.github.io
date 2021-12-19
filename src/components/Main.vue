@@ -4,8 +4,11 @@
             <div ref="welcomeRef" style="height: 6000px; position: relative">
                 <Welcome :proportion="proportion" />
             </div>
-            <div style="height: 6000px; position: relative">
+            <div style="height: auto; position: relative">
                 <Intro :proportion="proportion" />
+            </div>
+            <div style="height: 6000px; position: relative">
+                <About :proportion="proportion" />
             </div>
         </div>
     </div>
@@ -14,11 +17,13 @@
 <script>
 import Welcome from "./Welcome.vue";
 import Intro from "./Intro.vue";
+import About from "./About.vue";
 import { ref, onMounted, onUnmounted, provide } from "vue";
 
 export default {
     name: "Main",
     components: {
+        About,
         Intro,
         Welcome,
     },
@@ -35,12 +40,37 @@ export default {
             proportion.value =
                 (window.scrollY - selfRect.y) / scrollComponent.height;
 
-            console.log(proportion.value);
+            // console.log(proportion.value);
         }
         provide("proportion", proportion.value);
 
+        // function handleContentLoaded() {
+        //     const observer = new IntersectionObserver((entries) => {
+        //         entries.forEach((entry) => {
+        //             const id = entry.target.getAttribute("id");
+        //             console.log("intersection", entry.intersectionRatio);
+        //             if (entry.intersectionRatio > 0) {
+        //                 document
+        //                     .querySelector(`nav div a[href="#${id}"]`)
+        //                     .parentElement.classList.add("active");
+        //             } else {
+        //                 document
+        //                     .querySelector(`nav div a[href="#${id}"]`)
+        //                     .parentElement.classList.remove("active");
+        //             }
+        //         });
+        //     });
+
+        //     // Track all sections that have an `id` applied
+        //     document.querySelectorAll("section[id]").forEach((section) => {
+        //         observer.observe(section);
+        //     });
+        // }
+
         onMounted(() => {
             document.addEventListener("scroll", handleScroll);
+
+            // document.addEventListener("DOMContentLoaded", handleContentLoaded);
         });
 
         onUnmounted(() => {

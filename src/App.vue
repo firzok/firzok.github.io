@@ -47,14 +47,21 @@ export default {
     padding: 0;
     cursor: none;
 }
+
 #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0px;
-    background-color: $black;
+    // background-color: $black;
+    scroll-behavior: smooth;
 }
 
 .cursor {
@@ -70,5 +77,38 @@ body {
     z-index: 5;
     transform: translate(-50%, -50%);
     pointer-events: none;
+}
+
+@keyframes changebackgroundToWhite {
+    0% {
+        background-color: black;
+    }
+    100% {
+        background-color: white;
+    }
+}
+@keyframes changebackgroundToBlack {
+    0% {
+        background-color: white;
+    }
+    100% {
+        background-color: black;
+    }
+}
+
+.changebackgroundToWhiteClass {
+    background-color: black;
+    animation-name: changebackgroundToWhite;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    // animation-delay: 0.5s;
+}
+
+.changebackgroundToBlackClass {
+    background-color: white;
+    animation-name: changebackgroundToBlack;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    // animation-delay: 0.5s;
 }
 </style>

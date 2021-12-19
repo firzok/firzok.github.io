@@ -1,8 +1,8 @@
 <template>
-    <div class="link" :class="{ active: isActive }">
-        <span>
+    <div class="link" :class="{ active: isActive() }">
+        <a :href="`#${scrollTo}`">
             <slot />
-        </span>
+        </a>
     </div>
 </template>
 
@@ -10,17 +10,59 @@
 export default {
     name: "SidebarLink",
     components: {},
+    props: {
+        scrollTo: {
+            type: String,
+            required: true,
+            description: "id of the section to scroll to.",
+        },
+    },
+    methods: {
+        isActive() {
+            let el = document.querySelector(`section[id="${this.scrollTo}"]`);
+
+            if (!el) return false;
+            let rect = el.getBoundingClientRect();
+            console.log(
+                rect &&
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <=
+                        (window.innerHeight ||
+                            document.documentElement
+                                .clientHeight) /* or $(window).height() */ &&
+                    rect.right <=
+                        (window.innerWidth ||
+                            document.documentElement.clientWidth)
+            );
+            return (
+                rect &&
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <=
+                    (window.innerHeight ||
+                        document.documentElement
+                            .clientHeight) /* or $(window).height() */ &&
+                rect.right <=
+                    (window.innerWidth ||
+                        document.documentElement
+                            .clientWidth) /* or $(window).width() */
+            );
+        },
+    },
 };
 </script>
 
 <style lang="scss" scoped>
 .link {
-    :hover {
-        color: $white;
-        transition: 0.3s linear;
+    a,
+    a:hover,
+    a:focus,
+    a:active {
+        text-decoration: none;
+        color: inherit;
     }
-    .active {
-        font-size: 1.6rem;
+    &:hover {
         color: $white;
         transition: 0.3s linear;
     }
@@ -31,7 +73,9 @@ export default {
     justify-content: right;
     text-align: left;
 }
-.active {
-    font-weight: bold;
+.link.active {
+    color: $white;
+    font-size: 1.6rem;
+    transition: 0.3s linear;
 }
 </style> 

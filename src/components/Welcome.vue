@@ -1,5 +1,5 @@
 <template>
-    <div class="welcome">
+    <section id="welcome" class="welcome" ref="welcomeColorChange">
         <div class="animated-title">
             <div class="text-top">
                 <div :style="firstSectionInterpolator.topText(proportion)">
@@ -13,11 +13,14 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 </template>
 
 <script>
 import { firstSectionInterpolator } from "./interpolators";
+import { onMounted, watch, ref } from "vue";
+import { useElementVisibility } from "@vueuse/core";
+
 export default {
     name: "Welcome",
     props: {
@@ -26,7 +29,48 @@ export default {
     data() {
         return { firstSectionInterpolator };
     },
+    setup() {
+        const welcomeColorChange = ref(null);
+        const welcomeIsVisible = useElementVisibility(welcomeColorChange);
+        const changeBackground = (visible) => {
+            debugger;
+            document.body.classList.toggle(
+                "changebackgroundToWhiteClass",
+                !visible
+            );
+            document.body.classList.toggle(
+                "changebackgroundToBlackClass",
+                visible
+            );
+        };
 
+        watch(() => welcomeIsVisible.value, changeBackground);
+
+        const handleContentLoaded = () => {
+            const inViewport = (entries) => {
+                entries.forEach((entry) => {
+                    entry.target.classList.toggle(
+                        "is-inViewport",
+                        entry.isIntersecting
+                    );
+                });
+            };
+
+            const Obs = new IntersectionObserver(inViewport);
+            const obsOptions = {}; //See: https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#Intersection_observer_options
+
+            const highlighElement = document.querySelector(
+                ".text-highlights > div"
+            );
+            Obs.observe(highlighElement, obsOptions);
+        };
+
+        onMounted(() => {
+            document.addEventListener("DOMContentLoaded", handleContentLoaded);
+        });
+
+        return { welcomeColorChange, welcomeIsVisible, handleContentLoaded };
+    },
     methods: {
         checkActive(proportion, lower, upper) {
             return proportion > lower && proportion < upper;
@@ -38,7 +82,7 @@ export default {
 <style scoped lang="scss">
 .welcome {
     color: white;
-    background-color: $black;
+    // background-color: $black;
 
     height: 100vh;
     position: sticky;

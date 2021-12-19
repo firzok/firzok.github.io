@@ -1,12 +1,12 @@
 <template>
-    <section id="intro" class="intro" ref="introChangeColor">
+    <section id="about" class="about">
         <div class="animate">
             <div class="text-top">
                 I build digital products to make life easier.
             </div>
             <div class="text-middle">I am a</div>
             <div class="text-highlights">
-                <div>
+                <div :style="secondSectionInterpolator.highlights(proportion)">
                     <span class="highlight">Software Engineer</span>
                     <span>Developer</span>
                     <span>UX/UI Designer</span>
@@ -15,7 +15,7 @@
                 </div>
             </div>
             <img src="../assets/codeScreen1.png" alt="Coding screen" />
-            <!-- <div class="text-bottom">
+            <div class="text-bottom">
                 <div>
                     <span>
                         I am a Software Engineer based in Germany. National and
@@ -27,18 +27,16 @@
                         business.
                     </span>
                 </div>
-            </div> -->
+            </div>
         </div>
     </section>
 </template>
 
 <script>
 import { secondSectionInterpolator } from "./interpolators";
-import { ref, onMounted, watch } from "vue";
-import { useElementVisibility } from "@vueuse/core";
 
 export default {
-    name: "Intro",
+    name: "About",
     components: {},
     props: {
         proportion: { type: Number, default: 0 },
@@ -46,60 +44,13 @@ export default {
     data() {
         return { secondSectionInterpolator };
     },
-
-    setup() {
-        const introChangeColor = ref(null);
-        const introIsVisible = useElementVisibility(introChangeColor);
-        const changeBackground = (visible) => {
-            debugger;
-            document.body.classList.toggle(
-                "changebackgroundToBlackClass",
-                !visible
-            );
-            document.body.classList.toggle(
-                "changebackgroundToWhiteClass",
-                visible
-            );
-        };
-
-        const handleHighlightsAnimation = () => {
-            console.log("introIsVisible", introIsVisible.value);
-            const inViewport = (entries) => {
-                entries.forEach((entry) => {
-                    entry.target.classList.toggle(
-                        "is-inViewport",
-                        entry.isIntersecting
-                    );
-                });
-            };
-
-            const Obs = new IntersectionObserver(inViewport);
-            const obsOptions = {}; //See: https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#Intersection_observer_options
-
-            const highlighElement = document.querySelector(
-                ".text-highlights > div"
-            );
-            Obs.observe(highlighElement, obsOptions);
-        };
-
-        onMounted(() => {
-            document.addEventListener(
-                "DOMContentLoaded",
-                handleHighlightsAnimation
-            );
-        });
-
-        watch(() => introIsVisible.value, changeBackground);
-
-        return { introChangeColor, introIsVisible, handleHighlightsAnimation };
-    },
 };
 </script>
 
 <style scoped lang="scss">
-.intro {
-    color: black;
-    // background-color: white;
+.about {
+    color: white;
+    background-color: black;
 
     height: 100vh;
     position: sticky;
@@ -117,12 +68,22 @@ export default {
 
 @keyframes showHighlights {
     0% {
-        // transform: translate3d(0, -100%, 0);
-        bottom: 7em;
+        transform: translate3d(0, -100%, 0);
+    }
+    20% {
+        transform: translate3d(0, -80%, 0);
+    }
+    40% {
+        transform: translate3d(0, -60%, 0);
+    }
+    60% {
+        transform: translate3d(0, -40%, 0);
+    }
+    80% {
+        transform: translate3d(0, -20%, 0);
     }
     100% {
-        // transform: translate3d(0, -20%, 0);
-        bottom: 0.3em;
+        transform: translate3d(0, -5%, 0);
     }
 }
 @keyframes showBottomText {
@@ -175,12 +136,15 @@ export default {
     }
 }
 .animate > div.text-highlights div {
-    bottom: 7em;
-}
-.animate > div.text-highlights div.is-inViewport {
-    animation: showHighlights 3s cubic-bezier(0, 0, 0.48, 1.1);
-    animation-fill-mode: forwards;
-    animation-delay: 2s;
+    animation: showHighlights 1s linear;
+    animation-play-state: paused;
+
+    /* These last 2 properites clean up overshoot weirdness */
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+
+    bottom: 0;
+    transform: translate3d(0, 90%, 0);
 }
 
 .animate > div.text-bottom {
