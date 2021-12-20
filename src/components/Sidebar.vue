@@ -1,10 +1,11 @@
 <template>
     <div class="sidebar">
-        <img class="firzok" src="../assets/firzok.png" alt="Firzok" href="/" />
+        <img class="firzok" src="../assets/firzok.svg" alt="Firzok" href="/" />
         <nav class="links">
             <SidebarLink scrollTo="welcome">Welcome</SidebarLink>
             <SidebarLink scrollTo="intro">Intro</SidebarLink>
             <SidebarLink scrollTo="about">About</SidebarLink>
+            <SidebarLink scrollTo="skills">Skills</SidebarLink>
             <SidebarLink>Education</SidebarLink>
             <SidebarLink>Work Experience</SidebarLink>
             <SidebarLink>Contact</SidebarLink>
@@ -53,7 +54,6 @@ export default {
         width: 12vw;
         position: fixed;
         top: 2%;
-        cursor: pointer;
     }
     .links {
     }

@@ -51,7 +51,6 @@ export default {
         const introChangeColor = ref(null);
         const introIsVisible = useElementVisibility(introChangeColor);
         const changeBackground = (visible) => {
-            debugger;
             document.body.classList.toggle(
                 "changebackgroundToBlackClass",
                 !visible

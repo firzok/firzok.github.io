@@ -7,8 +7,11 @@
             <div style="height: auto; position: relative">
                 <Intro :proportion="proportion" />
             </div>
-            <div style="height: 6000px; position: relative">
+            <div style="height: 500px; position: relative">
                 <About :proportion="proportion" />
+            </div>
+            <div style="height: 500px; position: relative">
+                <Skills :proportion="proportion" />
             </div>
         </div>
     </div>
@@ -18,11 +21,13 @@
 import Welcome from "./Welcome.vue";
 import Intro from "./Intro.vue";
 import About from "./About.vue";
+import Skills from "./Skills.vue";
 import { ref, onMounted, onUnmounted, provide } from "vue";
 
 export default {
     name: "Main",
     components: {
+        Skills,
         About,
         Intro,
         Welcome,
@@ -93,7 +98,7 @@ export default {
     margin-left: 18vw;
 
     .components {
-        max-width: 1100px;
+        max-width: 100%;
         margin: 0 auto;
     }
 }

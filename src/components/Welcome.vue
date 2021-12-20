@@ -33,7 +33,6 @@ export default {
         const welcomeColorChange = ref(null);
         const welcomeIsVisible = useElementVisibility(welcomeColorChange);
         const changeBackground = (visible) => {
-            debugger;
             document.body.classList.toggle(
                 "changebackgroundToWhiteClass",
                 !visible
