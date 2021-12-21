@@ -60,7 +60,8 @@ html {
 
 body {
     margin: 0px;
-    // background-color: $black;
+    background-color: $black;
+    color: $white;
     scroll-behavior: smooth;
 }
 

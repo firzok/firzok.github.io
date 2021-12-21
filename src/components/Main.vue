@@ -10,7 +10,7 @@
             <div style="height: 500px; position: relative">
                 <About :proportion="proportion" />
             </div>
-            <div style="height: 500px; position: relative">
+            <div style="height: 2000px; position: relative">
                 <Skills :proportion="proportion" />
             </div>
         </div>
@@ -45,7 +45,7 @@ export default {
             proportion.value =
                 (window.scrollY - selfRect.y) / scrollComponent.height;
 
-            // console.log(proportion.value);
+            console.log("proportion", proportion.value);
         }
         provide("proportion", proportion.value);
 

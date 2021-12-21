@@ -1,6 +1,6 @@
 <template>
     <div class="sidebar">
-        <img class="firzok" src="../assets/firzok.svg" alt="Firzok" href="/" />
+        <img class="firzok" src="../assets/firzok.png" alt="Firzok" href="/" />
         <nav class="links">
             <SidebarLink scrollTo="welcome">Welcome</SidebarLink>
             <SidebarLink scrollTo="intro">Intro</SidebarLink>
@@ -54,8 +54,7 @@ export default {
         width: 12vw;
         position: fixed;
         top: 2%;
-    }
-    .links {
+        filter: drop-shadow(0px 0px 3px #fff);
     }
 }
 </style>

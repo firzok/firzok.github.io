@@ -1,4 +1,4 @@
-export const firstSectionInterpolator = {
+export const welcomeSectionInterpolator = {
 
     topText(proportion) {
         if (proportion < 1.4) {
@@ -48,22 +48,14 @@ export const secondSectionInterpolator = {
     }
 }
 
-export function secondSectionForegroundInterpolator(proportion) {
-    if (proportion < 0) {
-        return { opacity: 0, transform: 'translateX(-20rem)' };
-    } else if (proportion > 1) {
-        return { opacity: 0, transform: 'translateX(20rem)' };
-    } else {
-        return {};
-    }
-}
+export const skillsSectionInterpolator = {
 
-export function thirdSectionInterpolator(proportion) {
-    if (proportion < 0) {
-        return { opacity: 0, transform: 'translateX(-20rem)' };
-    } else if (proportion > 1) {
-        return { opacity: 0, transform: 'translateX(20rem)' };
-    } else {
-        return {};
+    title(proportion) {
+        if (proportion > 2.2 && proportion <= 2.7) {
+            // console.log('here', { 'transform': translateX(100 - ((proportion - 2.2) * 0.01) % ) });
+            return { 'transform': `translateX(${100*(5.4-2*proportion)}%)` }
+
+        }
     }
+
 }

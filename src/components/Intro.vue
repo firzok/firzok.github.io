@@ -34,7 +34,7 @@
 
 <script>
 import { secondSectionInterpolator } from "./interpolators";
-import { ref, onMounted, watch } from "vue";
+import { ref, onMounted } from "vue";
 import { useElementVisibility } from "@vueuse/core";
 
 export default {
@@ -50,16 +50,16 @@ export default {
     setup() {
         const introChangeColor = ref(null);
         const introIsVisible = useElementVisibility(introChangeColor);
-        const changeBackground = (visible) => {
-            document.body.classList.toggle(
-                "changebackgroundToBlackClass",
-                !visible
-            );
-            document.body.classList.toggle(
-                "changebackgroundToWhiteClass",
-                visible
-            );
-        };
+        // const changeBackground = (visible) => {
+        //     document.body.classList.toggle(
+        //         "changebackgroundToBlackClass",
+        //         !visible
+        //     );
+        //     document.body.classList.toggle(
+        //         "changebackgroundToWhiteClass",
+        //         visible
+        //     );
+        // };
 
         const handleHighlightsAnimation = () => {
             console.log("introIsVisible", introIsVisible.value);
@@ -88,7 +88,7 @@ export default {
             );
         });
 
-        watch(() => introIsVisible.value, changeBackground);
+        // watch(() => introIsVisible.value, changeBackground);
 
         return { introChangeColor, introIsVisible, handleHighlightsAnimation };
     },
@@ -97,7 +97,7 @@ export default {
 
 <style scoped lang="scss">
 .intro {
-    color: black;
+    color: white;
     // background-color: white;
 
     height: 100vh;
@@ -134,7 +134,7 @@ export default {
 }
 .animate {
     text-align: center;
-    color: $black;
+    color: $white;
     height: 80vmin;
     left: 50%;
     position: relative;

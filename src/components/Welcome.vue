@@ -2,13 +2,13 @@
     <section id="welcome" class="welcome" ref="welcomeColorChange">
         <div class="animated-title">
             <div class="text-top">
-                <div :style="firstSectionInterpolator.topText(proportion)">
+                <div :style="welcomeSectionInterpolator.topText(proportion)">
                     <span>Hi</span>
                     <span>I am Firzok</span>
                 </div>
             </div>
             <div class="text-bottom">
-                <div :style="firstSectionInterpolator.bottomText(proportion)">
+                <div :style="welcomeSectionInterpolator.bottomText(proportion)">
                     Welcome to my world.
                 </div>
             </div>
@@ -17,8 +17,8 @@
 </template>
 
 <script>
-import { firstSectionInterpolator } from "./interpolators";
-import { onMounted, watch, ref } from "vue";
+import { welcomeSectionInterpolator } from "./interpolators";
+import { onMounted, ref } from "vue";
 import { useElementVisibility } from "@vueuse/core";
 
 export default {
@@ -27,23 +27,23 @@ export default {
         proportion: { type: Number, default: 0 },
     },
     data() {
-        return { firstSectionInterpolator };
+        return { welcomeSectionInterpolator };
     },
     setup() {
         const welcomeColorChange = ref(null);
         const welcomeIsVisible = useElementVisibility(welcomeColorChange);
-        const changeBackground = (visible) => {
-            document.body.classList.toggle(
-                "changebackgroundToWhiteClass",
-                !visible
-            );
-            document.body.classList.toggle(
-                "changebackgroundToBlackClass",
-                visible
-            );
-        };
+        // const changeBackground = (visible) => {
+        //     document.body.classList.toggle(
+        //         "changebackgroundToWhiteClass",
+        //         !visible
+        //     );
+        //     document.body.classList.toggle(
+        //         "changebackgroundToBlackClass",
+        //         visible
+        //     );
+        // };
 
-        watch(() => welcomeIsVisible.value, changeBackground);
+        // watch(() => welcomeIsVisible.value, changeBackground);
 
         const handleContentLoaded = () => {
             const inViewport = (entries) => {
