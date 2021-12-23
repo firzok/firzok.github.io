@@ -13,8 +13,11 @@
             <div style="height: 1100px; position: relative">
                 <Skills :proportion="proportion" />
             </div>
-            <div style="height: 2000px; position: relative">
+            <div style="height: 800px; position: relative">
                 <Education :proportion="proportion" />
+            </div>
+            <div style="height: 2000px; position: relative">
+                <WorkExperience :proportion="proportion" />
             </div>
         </div>
     </div>
@@ -22,6 +25,7 @@
 
 <script>
 import Welcome from "./Welcome.vue";
+import WorkExperience from "./Work/WorkExperience.vue";
 import Intro from "./Intro.vue";
 import About from "./About.vue";
 import Education from "./Education.vue";
@@ -36,6 +40,7 @@ export default {
         Intro,
         Welcome,
         Education,
+        WorkExperience,
     },
     setup() {
         const appRef = ref(null);

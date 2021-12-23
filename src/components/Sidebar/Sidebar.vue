@@ -12,7 +12,7 @@
             <SidebarLink scrollTo="about">About</SidebarLink>
             <SidebarLink scrollTo="skills">Skills</SidebarLink>
             <SidebarLink scrollTo="education">Education</SidebarLink>
-            <SidebarLink>Work Experience</SidebarLink>
+            <SidebarLink scrollTo="workExperience">Work Experience</SidebarLink>
             <SidebarLink>Contact</SidebarLink>
         </nav>
     </div>
