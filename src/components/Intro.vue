@@ -177,9 +177,9 @@ export default {
     bottom: 7em;
 }
 .animate > div.text-highlights div.is-inViewport {
-    animation: showHighlights 3s cubic-bezier(0, 0, 0.48, 1.1);
+    animation: showHighlights 3.5s cubic-bezier(0, 0, 0.48, 1.1);
     animation-fill-mode: forwards;
-    animation-delay: 2s;
+    animation-delay: 0.8s;
 }
 
 .animate > div.text-bottom {

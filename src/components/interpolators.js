@@ -51,9 +51,20 @@ export const secondSectionInterpolator = {
 export const skillsSectionInterpolator = {
 
     title(proportion) {
-        if (proportion > 2.2 && proportion <= 2.7) {
-            // console.log('here', { 'transform': translateX(100 - ((proportion - 2.2) * 0.01) % ) });
+        if (proportion > 2.1 && proportion <= 2.7) {
+            // google interpolation formula to understand this.
             return { 'transform': `translateX(${100*(5.4-2*proportion)}%)` }
+        }
+    }
+
+}
+
+export const educationSectionInterpolator = {
+
+    title(proportion) {
+        if (proportion > 2.5 && proportion <= 3) {
+            // console.log('here', { 'transform': translateX(100 - ((proportion - 2.2) * 0.01) % ) });
+            return { 'transform': `translateX(${250*(3-proportion)}%)` }
 
         }
     }

@@ -74,7 +74,7 @@ export default {
 
 <style scoped lang="scss">
 .about {
-    color: black;
+    color: white;
 
     .about-text {
         font-size: 2.5rem;

@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import Sidebar from "./components/Sidebar.vue";
+import Sidebar from "./components/Sidebar/Sidebar.vue";
 import Main from "./components/Main.vue";
 import { onMounted, onUnmounted } from "vue";
 
@@ -43,8 +43,6 @@ export default {
 
 <style lang="scss">
 * {
-    margin: 0;
-    padding: 0;
     cursor: none;
 }
 

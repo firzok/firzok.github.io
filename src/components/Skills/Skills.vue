@@ -67,8 +67,8 @@
 
 <script>
 // import { ref } from "vue";
-import { skillsSectionInterpolator } from "./interpolators";
-import Skill from "./Skill.vue";
+import { skillsSectionInterpolator } from "../interpolators";
+import Skill from "../Skills/Skill.vue";
 // import { useElementVisibility } from "@vueuse/core";
 
 export default {
@@ -93,13 +93,17 @@ export default {
 .skills {
     color: white;
     .title-row {
+        overflow: hidden;
+
         .title {
             font-size: 5rem;
             font-weight: bold;
+            text-transform: uppercase;
         }
         .mini-text {
             font-size: 0.8rem;
             margin: 2rem 1rem;
+            text-transform: uppercase;
         }
     }
 

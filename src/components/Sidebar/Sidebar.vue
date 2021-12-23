@@ -1,12 +1,17 @@
 <template>
     <div class="sidebar">
-        <img class="firzok" src="../assets/firzok.png" alt="Firzok" href="/" />
+        <img
+            class="firzok"
+            :src="require('@/assets/firzok.png')"
+            alt="Firzok"
+            href="/"
+        />
         <nav class="links">
             <SidebarLink scrollTo="welcome">Welcome</SidebarLink>
             <SidebarLink scrollTo="intro">Intro</SidebarLink>
             <SidebarLink scrollTo="about">About</SidebarLink>
             <SidebarLink scrollTo="skills">Skills</SidebarLink>
-            <SidebarLink>Education</SidebarLink>
+            <SidebarLink scrollTo="education">Education</SidebarLink>
             <SidebarLink>Work Experience</SidebarLink>
             <SidebarLink>Contact</SidebarLink>
         </nav>
@@ -14,7 +19,7 @@
 </template>
 
 <script>
-import SidebarLink from "./SidebarLink.vue";
+import SidebarLink from "../Sidebar/SidebarLink.vue";
 export default {
     name: "Sidebar",
     components: { SidebarLink },

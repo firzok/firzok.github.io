@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { skillsSectionInterpolator } from "./interpolators";
+import { skillsSectionInterpolator } from "../interpolators";
 
 export default {
     name: "Skill",
