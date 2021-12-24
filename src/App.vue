@@ -17,8 +17,11 @@ export default {
         Main,
         Sidebar,
     },
+    mounted() {
+        this.userTheme = localStorage.getItem("user-theme", "dark");
+    },
     data() {
-        return { userTheme: localStorage.getItem("user-theme", "dark") };
+        return { userTheme: undefined };
     },
     setup() {
         const handleMouseMove = (evt) => {
