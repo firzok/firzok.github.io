@@ -31,3 +31,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ### Todos
 
 - [ ] Fix higlights scroll snap
+- [ ] Add timeline to work experience

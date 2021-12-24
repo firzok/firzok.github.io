@@ -16,8 +16,11 @@
             <div style="height: 800px; position: relative">
                 <Education :proportion="proportion" />
             </div>
-            <div style="height: 2000px; position: relative">
+            <div style="height: 2100px; position: relative">
                 <WorkExperience :proportion="proportion" />
+            </div>
+            <div style="height: 2000px; position: relative">
+                <Contact :proportion="proportion" />
             </div>
         </div>
     </div>
@@ -25,6 +28,7 @@
 
 <script>
 import Welcome from "./Welcome.vue";
+import Contact from "./Contact.vue";
 import WorkExperience from "./Work/WorkExperience.vue";
 import Intro from "./Intro.vue";
 import About from "./About.vue";
@@ -36,6 +40,7 @@ export default {
     name: "Main",
     components: {
         Skills,
+        Contact,
         About,
         Intro,
         Welcome,

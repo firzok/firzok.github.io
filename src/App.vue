@@ -76,6 +76,10 @@ body {
     z-index: 5;
     transform: translate(-50%, -50%);
     pointer-events: none;
+    :hover {
+        width: 9px;
+        height: 9px;
+    }
 }
 
 @keyframes changebackgroundToWhite {

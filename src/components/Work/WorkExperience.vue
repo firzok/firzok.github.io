@@ -7,7 +7,7 @@
         <div class="title-row">
             <div
                 class="title"
-                :style="educationSectionInterpolator.title(proportion)"
+                :style="workExperienceSectionInterpolator.title(proportion)"
             >
                 Work Experience
             </div>
@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { educationSectionInterpolator } from "../interpolators";
+import { workExperienceSectionInterpolator } from "../interpolators";
 import Work from "./Work";
 export default {
     name: "workExperience",
@@ -34,7 +34,7 @@ export default {
     },
     data() {
         return {
-            educationSectionInterpolator,
+            workExperienceSectionInterpolator,
             workExperiences: [
                 {
                     id: 1,

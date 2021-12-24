@@ -70,3 +70,23 @@ export const educationSectionInterpolator = {
     }
 
 }
+export const workExperienceSectionInterpolator = {
+
+    title(proportion) {
+        if (proportion > 2.75 && proportion <= 3.3) {
+            return { 'transform': `translateX(${222.2*(3.3-proportion)}%)` }
+
+        }
+    }
+
+}
+export const contactSectionInterpolator = {
+
+    title(proportion) {
+        if (proportion > 2.41 && proportion <= 3.95) {
+            return { 'transform': `translateX(${227.27*(3.95-proportion)}%)` }
+
+        }
+    }
+
+}
