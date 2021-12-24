@@ -10,15 +10,6 @@ jobs:
         node-version: [12.x]
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2.4.0
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1.4.4
-        with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm install
-      - run: npm run build --if-present
-
       - name: deploy files
         uses: JamesIves/github-pages-deploy-action@3.6.1
         with:
