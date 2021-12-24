@@ -19,7 +19,7 @@
             <div style="height: 2100px; position: relative">
                 <WorkExperience :proportion="proportion" />
             </div>
-            <div style="height: 2000px; position: relative">
+            <div style="height: 1300px; position: relative">
                 <Contact :proportion="proportion" />
             </div>
         </div>
