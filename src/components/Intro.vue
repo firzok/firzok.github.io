@@ -97,9 +97,6 @@ export default {
 
 <style scoped lang="scss">
 .intro {
-    color: white;
-    // background-color: white;
-
     height: 100vh;
     position: sticky;
     top: 0;
@@ -134,7 +131,6 @@ export default {
 }
 .animate {
     text-align: center;
-    color: $white;
     height: 80vmin;
     left: 50%;
     position: relative;

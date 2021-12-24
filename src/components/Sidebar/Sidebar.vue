@@ -15,14 +15,16 @@
             <SidebarLink scrollTo="workExperience">Work Experience</SidebarLink>
             <SidebarLink scrollTo="contact">Contact</SidebarLink>
         </nav>
+        <ThemeButton class="theme-btn" @toggle="$emit('toggleTheme')" />
     </div>
 </template>
 
 <script>
 import SidebarLink from "../Sidebar/SidebarLink.vue";
+import ThemeButton from "../ThemeButton";
 export default {
     name: "Sidebar",
-    components: { SidebarLink },
+    components: { ThemeButton, SidebarLink },
     methods: {
         scrollTo(id) {
             document.getElementById(id).scrollIntoView({
@@ -36,9 +38,6 @@ export default {
 
 <style scoped lang="scss">
 .sidebar {
-    color: $white;
-    background-color: $grey;
-
     max-width: 13vw;
     float: left;
     position: fixed;
@@ -55,11 +54,21 @@ export default {
     justify-content: center;
     align-items: center;
 
+    background-color: $lightGrey;
+
     .firzok {
         width: 12vw;
         position: fixed;
         top: 2%;
         filter: drop-shadow(0px 0px 3px #fff);
     }
+    .theme-btn {
+        position: absolute;
+        bottom: 2rem;
+    }
+}
+.dark .sidebar {
+    color: $white;
+    background-color: $grey;
 }
 </style>

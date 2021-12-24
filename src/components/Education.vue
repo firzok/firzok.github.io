@@ -1,5 +1,5 @@
 <template>
-    <section id="education" ref="educationSection" class="education">
+    <section id="education" ref="educationSection">
         <div class="title-row">
             <div
                 class="title"
@@ -8,41 +8,38 @@
                 My Education
             </div>
         </div>
-        <div class="list">
-            <div class="degree" ref="master" @mouseover="showMasters">
-                <span class="title">Masters</span>
-                <div class="details">
-                    <div class="text-details">
-                        <span class="name">Computer Science</span>
-                        <span class="duration">2020 - Now</span>
-                        <span class="specialisation"
-                            >Specialisation 1: Software Engineering</span
-                        >
-                        <span class="specialisation"
-                            >Specialisation 2: Network and Distributed
-                            Systems</span
-                        >
-                    </div>
-                    <div class="image">
-                        <a href="https://www.uni-kl.de/" target="_blank">
-                            <img src="@/assets/tukl.svg" />
-                        </a>
-                    </div>
+        <div class="degree" ref="master" @mouseover="showMasters">
+            <span class="title">Masters</span>
+            <div class="details">
+                <div class="text-details">
+                    <span class="name">Computer Science</span>
+                    <span class="duration">2020 - Now</span>
+                    <span class="specialisation"
+                        >Specialisation 1: Software Engineering</span
+                    >
+                    <span class="specialisation"
+                        >Specialisation 2: Network and Distributed Systems</span
+                    >
+                </div>
+                <div class="image">
+                    <a href="https://www.uni-kl.de/" target="_blank">
+                        <img src="@/assets/tukl.svg" />
+                    </a>
                 </div>
             </div>
-            <div class="degree right" ref="bachelor" @mouseover="showBachelors">
-                <span class="title">Bachelors</span>
-                <div class="details">
-                    <div class="text-details">
-                        <span class="name">Computer Science</span>
-                        <span class="duration">2015 - 2019</span>
-                        <span class="duration">CGPA: 3.49/4</span>
-                    </div>
-                    <div class="image">
-                        <a href="http://nu.edu.pk/" target="_blank">
-                            <img src="@/assets/nu.png" />
-                        </a>
-                    </div>
+        </div>
+        <div class="degree right" ref="bachelor" @mouseover="showBachelors">
+            <span class="title">Bachelors</span>
+            <div class="details">
+                <div class="text-details">
+                    <span class="name">Computer Science</span>
+                    <span class="duration">2015 - 2019</span>
+                    <span class="duration">CGPA: 3.49/4</span>
+                </div>
+                <div class="image">
+                    <a href="http://nu.edu.pk/" target="_blank">
+                        <img src="@/assets/nu.png" />
+                    </a>
                 </div>
             </div>
         </div>
@@ -80,106 +77,116 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-.education {
-    color: white;
+<style lang="scss">
+.title-row {
+    overflow: hidden;
 
-    .title-row {
-        overflow: hidden;
+    .title {
+        font-size: 5rem;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+}
 
-        .title {
-            font-size: 5rem;
-            font-weight: bold;
-            text-transform: uppercase;
+.degree {
+    text-transform: uppercase;
+
+    margin: 1rem 2rem;
+    height: 12rem;
+    width: 25rem;
+    background-color: $lightGrey;
+    padding: 1rem;
+    transition: background 0.5s ease-in-out;
+
+    .title {
+        font-size: 2.5rem;
+        @keyframes glowtext {
+            from {
+                filter: drop-shadow(0px 0px 2px #000);
+            }
+            to {
+                filter: drop-shadow(0px 0px 0px #000);
+            }
+        }
+        animation: glowtext 1s ease-in-out infinite alternate;
+    }
+
+    .details {
+        text-align: left;
+        display: flex;
+        flex-direction: row;
+        opacity: 0;
+        justify-content: space-between;
+        margin-top: 1rem;
+
+        & > .text-details {
+            span {
+                display: block;
+            }
+        }
+
+        & > .image {
+            display: flex;
+
+            img {
+                width: 20rem;
+                filter: drop-shadow(0px 0px 3px #000);
+            }
         }
     }
-    .list {
-        .degree {
-            text-transform: uppercase;
-
-            margin: 1rem 2rem;
-            height: 12rem;
-            width: 25rem;
-            background-color: $grey;
-            padding: 1rem;
-
-            .title {
-                font-size: 2.5rem;
-                @keyframes glow-text {
-                    from {
-                        filter: drop-shadow(0px 0px 2px #fff);
-                    }
-                    to {
-                        filter: drop-shadow(0px 0px 0px #fff);
-                    }
-                }
-                animation: glow-text 1s ease-in-out infinite alternate;
+}
+.dark .degree {
+    background-color: $grey;
+    .title {
+        font-size: 2.5rem;
+        @keyframes glow-text {
+            from {
+                filter: drop-shadow(0px 0px 2px #fff);
             }
+            to {
+                filter: drop-shadow(0px 0px 0px #fff);
+            }
+        }
+        animation: glow-text 1s ease-in-out infinite alternate;
+    }
+    .details {
+        & > .image {
+            img {
+                filter: drop-shadow(0px 0px 1px #fff);
+            }
+        }
+    }
+}
 
-            .details {
-                text-align: left;
-                display: flex;
-                flex-direction: row;
+.degree-active {
+    @keyframes extend {
+        0% {
+        }
+        100% {
+            width: 60rem;
+        }
+    }
+    animation: extend 0.5s linear forwards;
+
+    .details {
+        @keyframes textFocus {
+            0% {
+                filter: blur(12px);
                 opacity: 0;
-                justify-content: space-between;
-                margin-top: 1rem;
-
-                & > .text-details {
-                    span {
-                        display: block;
-                    }
-                }
-
-                & > .image {
-                    display: flex;
-
-                    img {
-                        width: 20rem;
-                        @keyframes glow {
-                            from {
-                                filter: drop-shadow(0px 0px 5px #000);
-                            }
-                            to {
-                                filter: drop-shadow(0px 0px 0px #000);
-                            }
-                        }
-                        animation: glow 1s ease-in-out infinite alternate;
-                    }
-                }
+            }
+            100% {
+                filter: blur(0px);
+                opacity: 1;
             }
         }
-
-        .degree-active {
-            @keyframes extend {
-                0% {
-                }
-                100% {
-                    width: 60rem;
-                }
-            }
-            animation: extend 0.5s linear forwards;
-
-            .details {
-                @keyframes textFocus {
-                    0% {
-                        filter: blur(12px);
-                        opacity: 0;
-                    }
-                    100% {
-                        filter: blur(0px);
-                        opacity: 1;
-                    }
-                }
-                animation: textFocus 1s linear 0.2s forwards;
-            }
-        }
-
-        .right {
-            position: relative;
-            margin-left: auto;
-            margin-top: 5rem;
-            text-align: right;
-        }
+        animation: textFocus 1s linear 0.2s forwards;
     }
+}
+
+.right {
+    position: relative;
+    margin-left: auto;
+    margin-top: 5rem;
+    text-align: right;
 }
 </style>

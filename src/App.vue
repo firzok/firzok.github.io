@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <Sidebar />
+    <div class="app" :class="mode">
+        <Sidebar @toggleTheme="toggleTheme" />
         <Main />
         <div class="cursor"></div>
     </div>
@@ -16,6 +16,9 @@ export default {
     components: {
         Main,
         Sidebar,
+    },
+    data() {
+        return { mode: "dark" };
     },
     setup() {
         const handleMouseMove = (evt) => {
@@ -37,7 +40,15 @@ export default {
             handleMouseMove,
         };
     },
-    methods: {},
+    methods: {
+        toggleTheme() {
+            if (this.mode === "dark") {
+                this.mode = "light";
+            } else {
+                this.mode = "dark";
+            }
+        },
+    },
 };
 </script>
 
@@ -46,20 +57,23 @@ export default {
     cursor: none;
 }
 
-#app {
+.app {
+    scroll-behavior: smooth;
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-}
 
-html {
-    scroll-behavior: smooth;
+    background-color: $backgroundColor-light;
+    color: $textColor-light;
+    transition: background 0.5s ease-in-out;
+}
+.dark {
+    background-color: $backgroundColor-dark;
+    color: $textColor-dark;
 }
 
 body {
     margin: 0px;
-    background-color: $black;
-    color: $white;
     scroll-behavior: smooth;
 }
 
@@ -67,9 +81,10 @@ body {
     position: fixed;
     left: 0;
     top: 0;
-    border: 1.5px solid $accentColor;
-    background-color: $accentColor;
-    box-shadow: 0 0 7px $accentColor;
+
+    border: 1.5px solid $grey;
+    background-color: $grey;
+    box-shadow: 0 0 7px $grey;
     width: 7px;
     height: 7px;
     border-radius: 50px;
@@ -80,6 +95,11 @@ body {
         width: 9px;
         height: 9px;
     }
+}
+.dark > .cursor {
+    border: 1.5px solid $lightGrey;
+    background-color: $lightGrey;
+    box-shadow: 0 0 7px $lightGrey;
 }
 
 @keyframes changebackgroundToWhite {

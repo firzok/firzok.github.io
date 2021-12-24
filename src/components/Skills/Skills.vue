@@ -13,54 +13,7 @@
             </div>
         </div>
         <div class="skills-container">
-            <Skill
-                title="react.js"
-                description="I use react.js for web apps which require a lot of reactivity."
-            />
-            <Skill
-                title="vue.js"
-                description="I use vue.js for the same as react but I love it more."
-            />
-            <Skill
-                title="nuxt.js"
-                description="A vue.js framework for static site rendering."
-            />
-            <Skill
-                title="javascript"
-                description="I use this to handle interactions and visual effects."
-            />
-            <Skill
-                title="html/css"
-                description="I use these to bring my designs to browser."
-            />
-            <Skill
-                title="node.js"
-                description="I use it for server apps and prototyping."
-            />
-            <Skill
-                title="express"
-                description="A framework for writing backend on node.js"
-            />
-            <Skill
-                title="python"
-                description="I use it for scripting and backend server apps."
-            />
-            <Skill
-                title="c++"
-                description="I use C++ for building fast libraries."
-            />
-            <Skill
-                title="ux/ui"
-                description="It helps my designs be more meaningul and relevant."
-            />
-            <Skill
-                title="photoshop"
-                description="I use photoshop for photo editing."
-            />
-            <Skill
-                title="lightroom"
-                description="I use lightroom for photo editing too."
-            />
+            <Skill v-for="(skill, idx) in skills" v-bind="skill" :key="idx" />
         </div>
     </section>
 </template>
@@ -78,7 +31,65 @@ export default {
         proportion: { type: Number, default: 0 },
     },
     data() {
-        return { skillsSectionInterpolator };
+        return {
+            skillsSectionInterpolator,
+            skills: [
+                {
+                    title: "react.js",
+                    description:
+                        "I use react.js for web apps which require a lot of reactivity.",
+                },
+                {
+                    title: "vue.js",
+                    description:
+                        "I use vue.js for the same as react but I love it more.",
+                },
+                {
+                    title: "nuxt.js",
+                    description:
+                        "A vue.js framework for static site rendering.",
+                },
+                {
+                    title: "javascript",
+                    description:
+                        "I use this to handle interactions and visual effects.",
+                },
+                {
+                    title: "html/css",
+                    description: "I use these to bring my designs to browser.",
+                },
+                {
+                    title: "node.js",
+                    description: "I use it for server apps and prototyping.",
+                },
+                {
+                    title: "express",
+                    description: "A framework for writing backend on node.js",
+                },
+                {
+                    title: "python",
+                    description:
+                        "I use it for scripting and backend server apps.",
+                },
+                {
+                    title: "c++",
+                    description: "I use C++ for building backend libraries.",
+                },
+                {
+                    title: "ux/ui",
+                    description:
+                        "It helps my designs be more meaningul and relevant.",
+                },
+                {
+                    title: "photoshop",
+                    description: "I use photoshop for photo editing.",
+                },
+                {
+                    title: "lightroom",
+                    description: "I use lightroom for photo editing too.",
+                },
+            ],
+        };
     },
     setup() {
         // const skillsSection = ref(null);
@@ -91,7 +102,6 @@ export default {
 
 <style scoped lang="scss">
 .skills {
-    color: white;
     .title-row {
         overflow: hidden;
 
@@ -108,7 +118,7 @@ export default {
     }
 
     .skills-container {
-        margin: 5rem 4rem;
+        margin: 3rem 1rem;
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         grid-template-rows: repeat(2, 1fr);

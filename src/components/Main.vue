@@ -109,7 +109,6 @@ export default {
 
 <style scoped lang="scss">
 .main {
-    height: 100vh;
     margin-left: 18vw;
 
     .components {

@@ -91,8 +91,8 @@ export default {
 
 <style scoped lang="scss">
 .work {
-    color: white;
-    background-color: $grey;
+    // color: white;
+    // background-color: $grey;
     padding: 1rem;
     .visible {
         text-transform: uppercase;

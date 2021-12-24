@@ -80,9 +80,6 @@ export default {
 
 <style scoped lang="scss">
 .welcome {
-    color: white;
-    // background-color: $black;
-
     height: 100vh;
     position: sticky;
     top: 0;

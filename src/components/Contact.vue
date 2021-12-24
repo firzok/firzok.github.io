@@ -65,8 +65,6 @@ a:active {
 }
 
 .contact {
-    color: white;
-
     .title-row {
         overflow: hidden;
 

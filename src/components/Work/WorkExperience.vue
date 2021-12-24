@@ -127,8 +127,6 @@ export default {
 
 <style scoped lang="scss">
 .workExperience {
-    color: white;
-
     .title-row {
         overflow: hidden;
 

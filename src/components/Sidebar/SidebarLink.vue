@@ -69,9 +69,11 @@ export default {
 
     font-size: 1.5rem;
     cursor: pointer;
-    color: $lightGrey;
+    color: $white;
     justify-content: right;
     text-align: left;
+}
+.dark .link {
 }
 .link.active {
     color: $white;
