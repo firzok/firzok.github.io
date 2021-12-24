@@ -114,7 +114,7 @@ export default {
 }
 .animated-title {
     text-align: right;
-    color: $grey;
+    color: $lightGrey;
     height: 80vmin;
     left: 50%;
     position: relative;
@@ -136,8 +136,11 @@ export default {
     display: block;
 }
 .animated-title > div.text-top {
-    border-bottom: 1vmin solid $white;
+    border-bottom: 1vmin solid $grey;
     top: 0;
+}
+.dark .animated-title > div.text-top {
+    border-bottom: 1vmin solid $white;
 }
 .animated-title > div.text-top div {
     animation: showTopText 1.5s linear;
@@ -151,6 +154,9 @@ export default {
     transform: translate(0, 100%);
 }
 .animated-title > div.text-top div span:last-child {
+    color: $grey;
+}
+.dark .animated-title > div.text-top div span:last-child {
     color: $white;
 }
 .animated-title > div.text-bottom {

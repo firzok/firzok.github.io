@@ -15,7 +15,11 @@
             <SidebarLink scrollTo="workExperience">Work Experience</SidebarLink>
             <SidebarLink scrollTo="contact">Contact</SidebarLink>
         </nav>
-        <ThemeButton class="theme-btn" @toggle="$emit('toggleTheme')" />
+        <ThemeButton
+            class="theme-btn"
+            :userTheme="userTheme"
+            @toggle="$emit('toggleTheme')"
+        />
     </div>
 </template>
 
@@ -25,6 +29,9 @@ import ThemeButton from "../ThemeButton";
 export default {
     name: "Sidebar",
     components: { ThemeButton, SidebarLink },
+    props: {
+        userTheme: { type: String, default: "dark" },
+    },
     methods: {
         scrollTo(id) {
             document.getElementById(id).scrollIntoView({

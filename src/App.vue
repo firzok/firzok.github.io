@@ -1,6 +1,6 @@
 <template>
-    <div class="app" :class="mode">
-        <Sidebar @toggleTheme="toggleTheme" />
+    <div class="app" :class="userTheme">
+        <Sidebar @toggleTheme="toggleTheme" :userTheme="userTheme" />
         <Main />
         <div class="cursor"></div>
     </div>
@@ -18,7 +18,7 @@ export default {
         Sidebar,
     },
     data() {
-        return { mode: "dark" };
+        return { userTheme: localStorage.getItem("user-theme", "dark") };
     },
     setup() {
         const handleMouseMove = (evt) => {
@@ -28,8 +28,26 @@ export default {
             cursor.style.left = evt.clientX + "px";
         };
 
+        const getMediaPreference = () => {
+            const activeTheme = localStorage.getItem("user-theme");
+            if (activeTheme) return activeTheme;
+            const hasDarkPreference = window.matchMedia(
+                "(prefers-color-scheme: dark)"
+            ).matches;
+            if (hasDarkPreference) {
+                return "dark";
+            } else {
+                return "light";
+            }
+        };
+        const setTheme = (theme) => {
+            localStorage.setItem("user-theme", theme);
+        };
+
         onMounted(() => {
             document.addEventListener("mousemove", handleMouseMove);
+            const initUserTheme = getMediaPreference();
+            setTheme(initUserTheme);
         });
 
         onUnmounted(() => {
@@ -38,14 +56,19 @@ export default {
 
         return {
             handleMouseMove,
+            getMediaPreference,
+            setTheme,
         };
     },
     methods: {
         toggleTheme() {
-            if (this.mode === "dark") {
-                this.mode = "light";
+            // const activeTheme = localStorage.getItem("user-theme");
+            if (this.userTheme === "dark") {
+                this.setTheme("light");
+                this.userTheme = "light";
             } else {
-                this.mode = "dark";
+                this.userTheme = "dark";
+                this.setTheme("dark");
             }
         },
     },

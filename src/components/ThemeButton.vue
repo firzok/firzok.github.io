@@ -1,23 +1,9 @@
 <template>
-    <!-- <div>
-        <input
-            @change="toggleTheme"
-            id="checkbox"
-            type="checkbox"
-            class="switch-checkbox"
-        />
-        <label for="checkbox" class="switch-label">
-            <div
-                class="switch-toggle"
-                :class="{ 'switch-toggle-checked': userTheme === 'dark-theme' }"
-            ></div>
-        </label>
-    </div> -->
     <div class="toggle-wrapper">
         <label class="toggle">
             <input
                 type="checkbox"
-                :checked="userTheme === 'dark-theme'"
+                :checked="userTheme === 'dark'"
                 @change="$emit('toggle')"
             />
             <span class="toggler"> </span>
@@ -27,44 +13,10 @@
 
 <script>
 export default {
-    mounted() {
-        const initUserTheme = this.getMediaPreference();
-        this.setTheme(initUserTheme);
+    props: {
+        userTheme: { type: String, default: "dark" },
     },
-
-    data() {
-        return {
-            userTheme: "light-theme",
-        };
-    },
-
-    methods: {
-        toggleTheme() {
-            const activeTheme = localStorage.getItem("user-theme");
-            if (activeTheme === "light-theme") {
-                this.setTheme("dark-theme");
-            } else {
-                this.setTheme("light-theme");
-            }
-        },
-
-        setTheme(theme) {
-            localStorage.setItem("user-theme", theme);
-            this.userTheme = theme;
-            document.documentElement.className = theme;
-        },
-
-        getMediaPreference() {
-            const hasDarkPreference = window.matchMedia(
-                "(prefers-color-scheme: dark)"
-            ).matches;
-            if (hasDarkPreference) {
-                return "dark-theme";
-            } else {
-                return "light-theme";
-            }
-        },
-    },
+    methods: {},
 };
 </script>
 
