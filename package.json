@@ -36,7 +36,7 @@
     "classnames": "2.2.6",
     "gh-pages": "^2.1.1",
     "moment": "2.24.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "nouislider": "13.1.1",
     "perfect-scrollbar": "1.4.0",
     "react": "16.8.3",
