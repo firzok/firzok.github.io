@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Firzok Nadeem - Senior Frontend Engineer building high-performance products with React, TypeScript, and cloud-native systems."
+    />
+    <title>Firzok Nadeem | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Sora:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <canvas id="particle-canvas" aria-hidden="true"></canvas>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="custom-cursor" id="custom-cursor" aria-hidden="true"></div>
+
+    <header class="top-nav">
+      <a href="#top" class="brand">Firzok Nadeem</a>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#work-experience">Work</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark and light mode">
+        <span class="theme-label">Dark</span>
+      </button>
+    </header>
+
+    <main id="top" class="layout">
+      <section class="hero reveal">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="kicker">Senior Software Engineer</p>
+            <h1>
+              Building reliable, high-performance web products
+              <span>for data-heavy, distributed systems.</span>
+            </h1>
+            <p class="hero-summary">
+              I am Firzok Nadeem, a frontend engineer with 7+ years of experience shipping production-critical
+              applications across AWS and fast-moving product teams.
+            </p>
+            <div class="hero-actions">
+              <a class="btn primary" href="#contact">Get In Touch</a>
+              <a class="btn secondary" href="mailto:firzok.nadeem@gmail.com">Email Me</a>
+            </div>
+            <div class="hero-metrics">
+              <article>
+                <h3>7+</h3>
+                <p>Years Experience</p>
+              </article>
+              <article>
+                <h3>100%</h3>
+                <p>E2E Pass Reliability</p>
+              </article>
+              <article>
+                <h3>20-80%</h3>
+                <p>Performance Gains Delivered</p>
+              </article>
+            </div>
+          </div>
+
+          <aside class="hero-panel">
+            <p class="panel-label">Current Focus</p>
+            <ul>
+              <li>Scalable frontend architecture in distributed systems</li>
+              <li>High-confidence testing and reliability engineering</li>
+              <li>Accessibility, performance, and product UX quality</li>
+            </ul>
+            <p class="panel-location">Berlin, Germany / Remote</p>
+          </aside>
+        </div>
+      </section>
+
+      <section id="about" class="card reveal">
+        <h2>About Me</h2>
+        <p>
+          I specialize in TypeScript and React architectures for complex, user-critical products. At Amazon Web
+          Services, I have led cross-service migrations, improved query execution workflows, and delivered resilient
+          frontend systems with strong accessibility and testing foundations.
+        </p>
+        <p>
+          I care deeply about product reliability, thoughtful UX, and systems that scale cleanly across teams. I am
+          especially interested in security-sensitive financial interfaces, blockchain-based systems, and multi-chain
+          user experiences.
+        </p>
+      </section>
+
+      <section id="work-experience" class="card reveal">
+        <h2>Career & Experience</h2>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-meta">
+              <h3>Frontend Engineer II (Promoted)</h3>
+              <p>Amazon Web Services (AWS)</p>
+              <p>Dec 2024 - Feb 2026</p>
+            </div>
+            <ul>
+              <li>
+                Led migration of Query Editor v2 to a cross-service API layer, reducing latency and scaling export
+                capacity to 100MB while preserving backward compatibility.
+              </li>
+              <li>
+                Architected resilient UI state flows for long-running query execution and real-time backend status
+                synchronization.
+              </li>
+              <li>
+                Re-architected end-to-end testing to sustained 100% pass rates, improving production deployment
+                confidence.
+              </li>
+            </ul>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-meta">
+              <h3>Frontend Engineer I</h3>
+              <p>Amazon Web Services (AWS)</p>
+              <p>Aug 2022 - Dec 2024</p>
+            </div>
+            <ul>
+              <li>Led full WCAG accessibility compliance effort and refactored core components for long-term standards.</li>
+              <li>
+                Reduced table creation time by 20% by optimizing schema inference and data loading workflows.
+              </li>
+              <li>
+                Improved modular frontend architecture to support scalable SageMaker Unified Studio integrations.
+              </li>
+            </ul>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-meta">
+              <h3>Software Engineer - Working Student</h3>
+              <p>SAP</p>
+              <p>Feb 2022 - May 2022</p>
+            </div>
+            <ul>
+              <li>Worked in engineering delivery workflows in a cross-functional enterprise environment.</li>
+              <li>Contributed to development tasks while pursuing transition to full-time product engineering roles.</li>
+            </ul>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-meta">
+              <h3>Software Engineer</h3>
+              <p>Proto</p>
+              <p>Sep 2020 - Sep 2021</p>
+            </div>
+            <ul>
+              <li>Reduced key page load times by up to 80% by identifying and removing JavaScript bottlenecks.</li>
+              <li>Built customer-facing frontend features and backend Python APIs for asynchronous workflows.</li>
+              <li>Maintained high engineering quality with ~95% automated test coverage.</li>
+            </ul>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-meta">
+              <h3>Software Engineer</h3>
+              <p>Automotive Artificial Intelligence (AAI)</p>
+              <p>Jul 2019 - Sep 2020</p>
+            </div>
+            <ul>
+              <li>Improved product performance by 20% and built scalable reusable React and Vue components.</li>
+              <li>Developed backend microservices with Python and C++ and improved test coverage.</li>
+            </ul>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-meta">
+              <h3>Software Engineer Intern</h3>
+              <p>Automotive Artificial Intelligence (AAI)</p>
+              <p>Jan 2019 - Jan 2019</p>
+            </div>
+            <ul>
+              <li>Developed a traffic simulator and renderer for self-driving cars using Python and PyGame.</li>
+              <li>Implemented client-server architecture and integrated a React-based web renderer.</li>
+            </ul>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-meta">
+              <h3>Software Engineer Intern</h3>
+              <p>Bentley Systems</p>
+              <p>Jun 2018 - Aug 2018</p>
+            </div>
+            <ul>
+              <li>Integrated Microsoft Rush for Node.js dependency management across projects.</li>
+              <li>Built Python automation scripts for analytics and cross-team test result visualization.</li>
+            </ul>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-meta">
+              <h3>Intern</h3>
+              <p>Reveal Lab FAST NUCES</p>
+              <p>May 2017 - Jul 2017</p>
+            </div>
+            <ul>
+              <li>Early internship role focused on foundational software development practice.</li>
+              <li>Contributed to lab projects in a collaborative engineering setting.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="education" class="card reveal">
+        <h2>Education</h2>
+        <article class="education-item">
+          <h3>Master of Science (M.Sc.) in Computer Science (Dropout)</h3>
+          <p>RPTU Kaiserslautern-Landau</p>
+          <p>2021 - 2021</p>
+          <ul>
+            <li>Specialization in Software Engineering and Distributed Systems</li>
+          </ul>
+        </article>
+
+        <article class="education-item">
+          <h3>Bachelor of Computer Science</h3>
+          <p>National University of Computer and Emerging Sciences</p>
+          <p>2015 - 2019</p>
+          <ul>
+            <li>CGPA: 3.49/4.00</li>
+            <li>4 Dean's List of Honour Awards</li>
+            <li>Ranked 17 out of 150</li>
+            <li>Won 2 speed programming competitions</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="skills" class="card reveal skills-showcase">
+        <h2>Skills</h2>
+        <p class="skills-intro">
+          Built from my resume and showcased as an interactive icon stack. Hover each skill for brand color and motion.
+        </p>
+        <div class="skills-marquee" aria-hidden="true">
+          <div class="skills-marquee-track" id="skills-marquee-track"></div>
+        </div>
+        <div class="skills-icon-grid" id="skills-icon-grid"></div>
+      </section>
+
+      <section id="contact" class="card contact reveal">
+        <h2>Get In Touch</h2>
+        <p>
+          I am open to senior frontend and product engineering opportunities where performance, reliability, and UX
+          quality matter.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:firzok.nadeem@gmail.com">firzok.nadeem@gmail.com</a>
+          <a href="https://www.linkedin.com/in/firzok-nadeem/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="https://github.com/firzok" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
