@@ -1,0 +1,100 @@
+---
+---
+
+<header class="top-nav">
+  <a href="#top" class="brand" data-nav-link="site">Firzok Nadeem</a>
+  <nav class="nav-links">
+    <a href="#about" data-nav-link="site">About</a>
+    <a href="#work-experience" data-nav-link="site">Work</a>
+    <a href="#projects" data-nav-link="site">Projects</a>
+    <a href="#education" data-nav-link="site">Education</a>
+    <a href="#skills" data-nav-link="site">Skills</a>
+    <a href="#contact" data-nav-link="site">Contact</a>
+  </nav>
+  <div class="nav-right">
+    <div class="mode-switch" role="group" aria-label="View mode">
+      <button type="button" data-mode-btn="site" aria-pressed="true">
+        <i class="fa-solid fa-file-lines" aria-hidden="true"></i> Site
+      </button>
+      <button type="button" data-mode-btn="terminal" aria-pressed="false">
+        <i class="fa-solid fa-terminal" aria-hidden="true"></i> Terminal
+      </button>
+      <button type="button" data-mode-btn="explore" aria-pressed="false">
+        <i class="fa-solid fa-gamepad" aria-hidden="true"></i> Explore
+      </button>
+    </div>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark and light mode">
+      <span class="theme-label">Dark</span>
+    </button>
+  </div>
+</header>
+
+<script>
+  const root = document.documentElement;
+  const body = document.body;
+  const themeToggle = document.getElementById("theme-toggle");
+  const themeLabel = document.querySelector(".theme-label");
+  const modeButtons = document.querySelectorAll<HTMLButtonElement>("[data-mode-btn]");
+  const navLinks = document.querySelectorAll<HTMLAnchorElement>("[data-nav-link]");
+
+  function syncThemeLabel() {
+    const theme = root.getAttribute("data-theme") || "dark";
+    if (themeLabel) themeLabel.textContent = theme === "dark" ? "Dark" : "Light";
+  }
+
+  syncThemeLabel();
+
+  themeToggle?.addEventListener("click", () => {
+    const next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
+    root.setAttribute("data-theme", next);
+    try {
+      localStorage.setItem("theme", next);
+    } catch (e) {}
+    syncThemeLabel();
+  });
+
+  function setMode(mode: string) {
+    body.setAttribute("data-mode", mode);
+    modeButtons.forEach((btn) => {
+      btn.setAttribute("aria-pressed", String(btn.dataset.modeBtn === mode));
+    });
+    window.dispatchEvent(new CustomEvent("portfolio:mode", { detail: { mode } }));
+    try {
+      localStorage.setItem("mode", mode);
+    } catch (e) {}
+  }
+
+  (window as any).portfolioSetMode = setMode;
+
+  modeButtons.forEach((btn) => {
+    btn.addEventListener("click", () => setMode(btn.dataset.modeBtn as string));
+  });
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      if (body.getAttribute("data-mode") !== "site") {
+        e.preventDefault();
+        setMode("site");
+        const targetId = link.getAttribute("href");
+        requestAnimationFrame(() => {
+          if (targetId && targetId.length > 1) {
+            document.querySelector(targetId)?.scrollIntoView({ behavior: "smooth" });
+          }
+        });
+      }
+    });
+  });
+
+  window.addEventListener("keydown", (e) => {
+    const active = document.activeElement;
+    const isTyping = active && (active.tagName === "INPUT" || active.tagName === "TEXTAREA");
+    if (e.key === "`" && !isTyping) {
+      e.preventDefault();
+      const current = body.getAttribute("data-mode");
+      setMode(current === "terminal" ? "site" : "terminal");
+    }
+    if (e.key === "Escape" && body.getAttribute("data-mode") === "terminal" && !isTyping) {
+      setMode("site");
+    }
+  });
+</script>

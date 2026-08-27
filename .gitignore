@@ -12,6 +12,8 @@ node_modules/
 
 # production
 /build
+/dist
+.astro/
 
 # misc
 .DS_Store

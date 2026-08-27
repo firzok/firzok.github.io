@@ -1,0 +1,41 @@
+---
+import { profile } from "../../content/resume";
+---
+
+<section class="hero reveal">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <p class="kicker">{profile.role}</p>
+      <h1>
+        Building reliable, high-performance web products
+        <span>for data-heavy, distributed systems.</span>
+      </h1>
+      <p class="hero-summary">
+        I am {profile.name}, a frontend engineer with 7+ years of experience shipping production-critical
+        applications across AWS and fast-moving product teams.
+      </p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#contact" data-nav-link="site">Get In Touch</a>
+        <a class="btn secondary" href={`mailto:${profile.email}`}>Email Me</a>
+      </div>
+      <div class="hero-metrics">
+        {
+          profile.metrics.map((m) => (
+            <article>
+              <h3>{m.value}</h3>
+              <p>{m.label}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+
+    <aside class="hero-panel">
+      <p class="panel-label">Current Focus</p>
+      <ul>
+        {profile.focus.map((line) => <li>{line}</li>)}
+      </ul>
+      <p class="panel-location">{profile.location}</p>
+    </aside>
+  </div>
+</section>

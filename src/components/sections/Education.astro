@@ -1,0 +1,21 @@
+---
+import { education } from "../../content/resume";
+---
+
+<section id="education" class="card reveal">
+  <h2>Education</h2>
+  {
+    education.map((entry) => (
+      <article class="education-item">
+        <h3>{entry.degree}</h3>
+        <p>{entry.org}</p>
+        <p>{entry.period}</p>
+        <ul>
+          {entry.bullets.map((bullet) => (
+            <li>{bullet}</li>
+          ))}
+        </ul>
+      </article>
+    ))
+  }
+</section>

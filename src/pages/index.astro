@@ -1,0 +1,45 @@
+---
+import Base from "../layouts/Base.astro";
+import Nav from "../components/Nav.astro";
+import Hero from "../components/sections/Hero.astro";
+import About from "../components/sections/About.astro";
+import Experience from "../components/sections/Experience.astro";
+import Projects from "../components/sections/Projects.astro";
+import Education from "../components/sections/Education.astro";
+import Skills from "../components/sections/Skills.astro";
+import Contact from "../components/sections/Contact.astro";
+import TerminalView from "../components/TerminalView.astro";
+import ExploreView from "../components/ExploreView.astro";
+import ResumeFab from "../components/ResumeFab.astro";
+---
+
+<Base>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="custom-cursor" id="custom-cursor" aria-hidden="true"></div>
+
+  <Nav />
+
+  <main id="top">
+    <div class="view view-site">
+      <div class="layout">
+        <Hero />
+        <About />
+        <Experience />
+        <Projects />
+        <Education />
+        <Skills />
+        <Contact />
+      </div>
+    </div>
+
+    <TerminalView />
+    <ExploreView />
+  </main>
+
+  <ResumeFab />
+
+  <script>
+    import "../scripts/site-fx.ts";
+  </script>
+</Base>
