@@ -52,6 +52,7 @@ a {
   text-decoration: none;
 }
 
+#gpu-field,
 #particle-canvas,
 .grain {
   position: fixed;
@@ -61,6 +62,12 @@ a {
   pointer-events: none;
 }
 
+#gpu-field {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+#gpu-field,
 #particle-canvas {
   z-index: 0;
 }
