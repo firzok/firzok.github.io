@@ -14,6 +14,7 @@ import ResumeFab from "../components/ResumeFab.astro";
 ---
 
 <Base>
+  <canvas id="gpu-field" aria-hidden="true"></canvas>
   <canvas id="particle-canvas" aria-hidden="true"></canvas>
   <div class="grain" aria-hidden="true"></div>
   <div class="custom-cursor" id="custom-cursor" aria-hidden="true"></div>
@@ -41,5 +42,7 @@ import ResumeFab from "../components/ResumeFab.astro";
 
   <script>
     import "../scripts/site-fx.ts";
+    import { initWebGPUField } from "../scripts/webgpu-field.ts";
+    initWebGPUField();
   </script>
 </Base>
