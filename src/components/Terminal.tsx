@@ -51,7 +51,6 @@ function buildHelp(): string[] {
     "  contact              how to reach me",
     "  resume               open the latest resume",
     "  theme [dark|light]   switch color theme",
-    "  explore              launch Explore Mode (Game Boy overworld)",
     "  site                 return to the classic scrolling site",
     "  clear                clear the terminal",
     "  sudo make-coffee     ???"
@@ -107,9 +106,6 @@ function runCommand(raw: string): Line[] {
       } catch {}
       return [{ text: `Theme set to ${next}.` }];
     }
-    case "explore":
-      window.portfolioSetMode?.("explore");
-      return [{ text: "Launching Explore Mode..." }];
     case "site":
       window.portfolioSetMode?.("site");
       return [{ text: "Back to the classic site." }];

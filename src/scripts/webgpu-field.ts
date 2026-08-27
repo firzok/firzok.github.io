@@ -2,16 +2,17 @@
 // Optional WebGPU background: a stylized black hole / accretion-disk
 // shader that reacts to scroll depth and pointer position. Entirely
 // additive — it no-ops without WebGPU support or on reduced-motion,
-// leaving the canvas-2D starfield as the baseline experience in every
+// leaving the canvas-2D starfield as the baseline experience in that
 // case. The canvas renders fully opaque (the simplest, best-supported
-// WebGPU canvas path); showing/hiding it for light vs. dark theme is
-// handled with a plain CSS opacity transition on the element itself,
-// not WebGPU alpha blending.
+// WebGPU canvas path) and runs in both themes — the "empty space"
+// background color is passed in as a uniform and swaps with the
+// current theme, while the event horizon stays black in either case.
 
 const SHADER = /* wgsl */ `
 struct Uniforms {
-  timeRes: vec4<f32>,   // time, resX, resY, scrollProgress
-  pointer: vec4<f32>,   // pointerX, pointerY, unused, unused
+  timeRes: vec4<f32>, // time, resX, resY, scrollProgress
+  pointer: vec4<f32>, // pointerX, pointerY, unused, unused
+  bg: vec4<f32>,       // bgR, bgG, bgB, unused
 };
 @group(0) @binding(0) var<uniform> u: Uniforms;
 
@@ -82,14 +83,14 @@ fn fs_main(@builtin(position) fragCoord: vec4<f32>) -> @location(0) vec4<f32> {
   let diskGlow = clamp(diskMask * (0.3 + 0.7 * turbulence), 0.0, 1.0);
 
   let heat = clamp(1.0 - (r - horizon) / (diskOuter - horizon), 0.0, 1.0);
-  let innerColor = vec3<f32>(0.85, 0.92, 1.0);
-  let outerColor = vec3<f32>(1.0, 0.5, 0.2);
+  let isLight = u.bg.a;
+  let innerColor = mix(vec3<f32>(0.85, 0.92, 1.0), vec3<f32>(0.95, 0.5, 0.1), isLight);
+  let outerColor = mix(vec3<f32>(1.0, 0.5, 0.2), vec3<f32>(0.85, 0.25, 0.05), isLight);
   let diskColor = mix(outerColor, innerColor, pow(heat, 1.6));
 
   let voidMask = 1.0 - smoothstep(horizon * 0.7, horizon, r);
 
-  let background = vec3<f32>(0.008, 0.01, 0.014);
-  var color = mix(background, diskColor, diskGlow);
+  var color = mix(u.bg.rgb, diskColor, diskGlow);
   color = mix(color, vec3<f32>(0.0, 0.0, 0.0), voidMask);
 
   return vec4<f32>(color, 1.0);
@@ -132,7 +133,7 @@ export async function initWebGPUField(): Promise<void> {
     });
 
     uniformBuffer = device.createBuffer({
-      size: 32,
+      size: 48,
       usage: GPUBufferUsage.UNIFORM | GPUBufferUsage.COPY_DST
     });
 
@@ -146,7 +147,10 @@ export async function initWebGPUField(): Promise<void> {
 
   canvas.style.opacity = "0";
 
-  const uniformData = new Float32Array(8);
+  const DARK_BG = [0.008, 0.01, 0.014];
+  const LIGHT_BG = [0.96, 0.96, 0.965];
+
+  const uniformData = new Float32Array(12);
   const pointerTarget = { x: 0.5, y: 0.5 };
   const pointer = { x: 0.5, y: 0.5 };
   let scrollTarget = 0;
@@ -186,12 +190,10 @@ export async function initWebGPUField(): Promise<void> {
   updateScrollTarget();
 
   function frame(t: number) {
+    canvas.style.opacity = "1";
+
     const isDark = document.documentElement.getAttribute("data-theme") !== "light";
-    canvas.style.opacity = isDark ? "1" : "0";
-    if (!isDark) {
-      requestAnimationFrame(frame);
-      return;
-    }
+    const bg = isDark ? DARK_BG : LIGHT_BG;
 
     pointer.x += (pointerTarget.x - pointer.x) * 0.06;
     pointer.y += (pointerTarget.y - pointer.y) * 0.06;
@@ -205,6 +207,10 @@ export async function initWebGPUField(): Promise<void> {
     uniformData[5] = pointer.y;
     uniformData[6] = 0;
     uniformData[7] = 0;
+    uniformData[8] = bg[0];
+    uniformData[9] = bg[1];
+    uniformData[10] = bg[2];
+    uniformData[11] = isDark ? 0 : 1;
 
     try {
       device.queue.writeBuffer(uniformBuffer, 0, uniformData);
