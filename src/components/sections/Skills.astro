@@ -1,0 +1,33 @@
+---
+import { skills } from "../../content/resume";
+const marqueeSkills = [...skills, ...skills];
+---
+
+<section id="skills" class="card reveal skills-showcase" data-skills-section>
+  <h2>Skills</h2>
+  <p class="skills-intro">
+    Built from my resume and showcased as an interactive icon stack. Hover each skill for brand color and motion.
+  </p>
+  <div class="skills-marquee" aria-hidden="true">
+    <div class="skills-marquee-track">
+      {
+        marqueeSkills.map((skill) => (
+          <div class="skills-marquee-pill" style={`--pill-color: ${skill.color}`}>
+            <i class={skill.icon} aria-hidden="true" />
+            <span>{skill.name}</span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+  <div class="skills-icon-grid">
+    {
+      skills.map((skill, index) => (
+        <article class="skill-icon-card" style={`--hover-color: ${skill.color}; --skill-stagger: ${index}`} tabindex="0">
+          <i class={`skill-icon ${skill.icon}`} aria-hidden="true" />
+          <p class="skill-name">{skill.name}</p>
+        </article>
+      ))
+    }
+  </div>
+</section>

@@ -1,0 +1,25 @@
+---
+import { experience } from "../../content/resume";
+---
+
+<section id="work-experience" class="card reveal">
+  <h2>Career & Experience</h2>
+  <div class="timeline">
+    {
+      experience.map((job) => (
+        <article class="timeline-item">
+          <div class="timeline-meta">
+            <h3>{job.title}</h3>
+            <p>{job.org}</p>
+            <p>{job.period}</p>
+          </div>
+          <ul>
+            {job.bullets.map((bullet) => (
+              <li>{bullet}</li>
+            ))}
+          </ul>
+        </article>
+      ))
+    }
+  </div>
+</section>

@@ -1,0 +1,28 @@
+---
+import { projects } from "../../content/resume";
+---
+
+<section id="projects" class="card reveal">
+  <h2>Projects</h2>
+  <p>Independent products I designed, built, and shipped end-to-end as a founder.</p>
+  <div class="projects-grid">
+    {
+      projects.map((project) => (
+        <article class="project-card">
+          <h3>{project.name}</h3>
+          <p class="project-tagline">{project.tagline}</p>
+          <ul>
+            {project.bullets.map((bullet) => (
+              <li>{bullet}</li>
+            ))}
+          </ul>
+          <div class="project-stack">
+            {project.stack.map((tech) => (
+              <span>{tech}</span>
+            ))}
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>
