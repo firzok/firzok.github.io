@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { profile, experience, projects, education, skills, contactLines } from "./content";
 
-const TILE = 24;
-const COLS = 20;
-const ROWS = 18;
-const VIEW_COLS = 10;
-const VIEW_ROWS = 9;
+const TILE = 64;
+const COLS = 22;
+const ROWS = 12;
+const VIEW_COLS = 14;
+const VIEW_ROWS = 7;
 const CANVAS_W = VIEW_COLS * TILE;
 const CANVAS_H = VIEW_ROWS * TILE;
 
@@ -22,13 +22,23 @@ type Building = {
 };
 
 const BUILDINGS: Building[] = [
-  { id: "about", label: "Captain's Quarters", x: 3, y: 3, color: "#7dd3fc", glow: "#0ea5e9" },
-  { id: "work", label: "Cargo Bay", x: 14, y: 3, color: "#fbbf24", glow: "#d97706" },
-  { id: "projects", label: "Engineering Hangar", x: 9, y: 6, color: "#c084fc", glow: "#7c3aed" },
-  { id: "education", label: "Archive Vault", x: 3, y: 10, color: "#5eead4", glow: "#0d9488" },
-  { id: "skills", label: "Systems Armory", x: 14, y: 10, color: "#fb7185", glow: "#be123c" },
-  { id: "contact", label: "Comms Tower", x: 9, y: 13, color: "#a3e635", glow: "#4d7c0f" }
+  { id: "about", label: "Captain's Quarters", x: 4, y: 3, color: "#7dd3fc", glow: "#0ea5e9" },
+  { id: "work", label: "Cargo Bay", x: 17, y: 3, color: "#fbbf24", glow: "#d97706" },
+  { id: "projects", label: "Engineering Hangar", x: 11, y: 5, color: "#c084fc", glow: "#7c3aed" },
+  { id: "education", label: "Archive Vault", x: 4, y: 8, color: "#5eead4", glow: "#0d9488" },
+  { id: "skills", label: "Systems Armory", x: 17, y: 8, color: "#fb7185", glow: "#be123c" },
+  { id: "contact", label: "Comms Tower", x: 11, y: 9, color: "#a3e635", glow: "#4d7c0f" }
 ];
+
+const HUB = { x: COLS / 2, y: ROWS / 2 };
+
+type Star = { x: number; y: number; r: number; a: number };
+const STARFIELD: Star[] = Array.from({ length: 90 }, () => ({
+  x: Math.random() * COLS * TILE,
+  y: Math.random() * ROWS * TILE,
+  r: Math.random() * 1.4 + 0.3,
+  a: Math.random() * 0.5 + 0.15
+}));
 
 function buildGrid(): number[][] {
   const grid: number[][] = Array.from({ length: ROWS }, () => Array(COLS).fill(0));
@@ -76,9 +86,50 @@ function buildingContent(id: BuildingId): string[] {
   }
 }
 
+function hexToRgb(hex: string): string {
+  const n = parseInt(hex.slice(1), 16);
+  return `${(n >> 16) & 255}, ${(n >> 8) & 255}, ${n & 255}`;
+}
+
+function getPalette() {
+  const dark = document.documentElement.getAttribute("data-theme") !== "light";
+  return dark
+    ? { bg: "#080a0f", grid: "rgba(255,255,255,0.05)", star: "255,255,255", wall: "rgba(255,255,255,0.16)", marker: "255,255,255" }
+    : { bg: "#eef0f3", grid: "rgba(0,0,0,0.07)", star: "0,0,0", wall: "rgba(0,0,0,0.16)", marker: "16,16,16" };
+}
+
+function ChevronIcon({ direction }: { direction: Dir }) {
+  const rotation = { up: 0, right: 90, down: 180, left: 270 }[direction];
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width="14"
+      height="14"
+      aria-hidden="true"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2.2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      style={{ transform: `rotate(${rotation}deg)` }}
+    >
+      <path d="M6 15l6-6 6 6" />
+    </svg>
+  );
+}
+
+function ListIcon() {
+  return (
+    <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+      <rect x="4" y="4" width="16" height="16" rx="2" />
+      <path d="m8 12 2.5 2.5L16 9" />
+    </svg>
+  );
+}
+
 export default function Explore() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const player = useRef({ x: 9, y: 15, px: 9, py: 15, facing: "down" as Dir, moving: false, animT: 0 });
+  const player = useRef({ x: 11, y: 10, px: 11, py: 10, facing: "up" as Dir, moving: false, animT: 0 });
   const rafRef = useRef<number>(0);
   const activeRef = useRef(false);
 
@@ -198,6 +249,7 @@ export default function Explore() {
     const context2d = canvas?.getContext("2d");
     if (!canvas || !context2d) return;
     const ctx: CanvasRenderingContext2D = context2d;
+    const nearbyRef = { current: null as Building | null };
 
     function loop() {
       rafRef.current = requestAnimationFrame(loop);
@@ -218,56 +270,82 @@ export default function Explore() {
         p.py = p.y;
       }
 
-      draw(ctx);
+      draw();
     }
 
-    function draw(ctx: CanvasRenderingContext2D) {
+    function draw() {
+      const pal = getPalette();
       const p = player.current;
-      const camX = Math.max(0, Math.min(COLS - VIEW_COLS, Math.round(p.px - VIEW_COLS / 2)));
-      const camY = Math.max(0, Math.min(ROWS - VIEW_ROWS, Math.round(p.py - VIEW_ROWS / 2)));
+      const camX = Math.max(0, Math.min(COLS - VIEW_COLS, p.px - VIEW_COLS / 2));
+      const camY = Math.max(0, Math.min(ROWS - VIEW_ROWS, p.py - VIEW_ROWS / 2));
+      const camPxX = camX * TILE;
+      const camPxY = camY * TILE;
 
-      ctx.fillStyle = "#0f380f";
+      ctx.fillStyle = pal.bg;
       ctx.fillRect(0, 0, CANVAS_W, CANVAS_H);
 
-      for (let y = 0; y < VIEW_ROWS + 1; y++) {
-        for (let x = 0; x < VIEW_COLS + 1; x++) {
-          const gx = camX + x;
-          const gy = camY + y;
-          if (gx >= COLS || gy >= ROWS) continue;
-          const tile = GRID[gy][gx];
-          const px = x * TILE;
-          const py = y * TILE;
-          if (tile === 1 && !buildingAt(gx, gy)) {
-            ctx.fillStyle = "#306230";
-            ctx.fillRect(px, py, TILE, TILE);
-          } else {
-            const checker = (gx + gy) % 2 === 0;
-            ctx.fillStyle = checker ? "#8bac0f" : "#9bbc0f";
-            ctx.fillRect(px, py, TILE, TILE);
-          }
-        }
+      // faint starfield, parallax-free (fixed to map space)
+      for (const s of STARFIELD) {
+        const sx = s.x - camPxX;
+        const sy = s.y - camPxY;
+        if (sx < -4 || sy < -4 || sx > CANVAS_W + 4 || sy > CANVAS_H + 4) continue;
+        ctx.fillStyle = `rgba(${pal.star}, ${s.a})`;
+        ctx.beginPath();
+        ctx.arc(sx, sy, s.r, 0, Math.PI * 2);
+        ctx.fill();
       }
 
+      // grid lines
+      ctx.strokeStyle = pal.grid;
+      ctx.lineWidth = 1;
+      const startCol = Math.floor(camX);
+      const startRow = Math.floor(camY);
+      for (let x = startCol; x <= startCol + VIEW_COLS + 1; x++) {
+        const sx = x * TILE - camPxX;
+        ctx.beginPath();
+        ctx.moveTo(sx, 0);
+        ctx.lineTo(sx, CANVAS_H);
+        ctx.stroke();
+      }
+      for (let y = startRow; y <= startRow + VIEW_ROWS + 1; y++) {
+        const sy = y * TILE - camPxY;
+        ctx.beginPath();
+        ctx.moveTo(0, sy);
+        ctx.lineTo(CANVAS_W, sy);
+        ctx.stroke();
+      }
+
+      // conduit lines from hub to each building
+      const hubSx = (HUB.x + 0.5) * TILE - camPxX;
+      const hubSy = (HUB.y + 0.5) * TILE - camPxY;
       for (const b of BUILDINGS) {
-        const sx = (b.x - camX) * TILE;
-        const sy = (b.y - camY) * TILE;
-        if (sx < -TILE || sy < -TILE || sx > CANVAS_W || sy > CANVAS_H) continue;
-        const visitedGlow = visited.has(b.id);
-        ctx.fillStyle = "#0f380f";
-        ctx.fillRect(sx - 3, sy - 6, TILE + 6, TILE + 10);
-        ctx.fillStyle = b.color;
-        ctx.fillRect(sx - 1, sy - 4, TILE + 2, TILE + 6);
-        ctx.fillStyle = "#0f380f";
-        ctx.fillRect(sx + 4, sy + 2, TILE - 8, 6);
-        if (visitedGlow) {
-          ctx.fillStyle = "#e8ffb0";
-          ctx.fillRect(sx + TILE / 2 - 2, sy - 12, 4, 4);
-        }
+        const bx = (b.x + 0.5) * TILE - camPxX;
+        const by = (b.y + 0.5) * TILE - camPxY;
+        ctx.strokeStyle = `rgba(${hexToRgb(b.glow)}, 0.16)`;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(hubSx, hubSy);
+        ctx.lineTo(bx, by);
+        ctx.stroke();
       }
 
-      const sx = (p.px - camX) * TILE;
-      const sy = (p.py - camY) * TILE;
-      drawPlayer(ctx, sx, sy, p.facing, p.moving && p.animT < 1);
+      // outer boundary
+      ctx.strokeStyle = pal.wall;
+      ctx.lineWidth = 3;
+      ctx.strokeRect(0.5 * TILE - camPxX, 0.5 * TILE - camPxY, (COLS - 1) * TILE, (ROWS - 1) * TILE);
+
+      // buildings
+      for (const b of BUILDINGS) {
+        const cx = (b.x + 0.5) * TILE - camPxX;
+        const cy = (b.y + 0.5) * TILE - camPxY;
+        if (cx < -TILE || cy < -TILE || cx > CANVAS_W + TILE || cy > CANVAS_H + TILE) continue;
+        drawBuilding(cx, cy, b, visited.has(b.id));
+      }
+
+      // player
+      const psx = (p.px + 0.5) * TILE - camPxX;
+      const psy = (p.py + 0.5) * TILE - camPxY;
+      drawPlayer(psx, psy, p.facing, p.moving ? p.animT : 1, pal.marker);
 
       if (!dialogRef.current && !showMenuRef.current) {
         let fx = p.x;
@@ -284,128 +362,147 @@ export default function Explore() {
       }
     }
 
-    function drawPlayer(ctx: CanvasRenderingContext2D, x: number, y: number, facing: Dir, bob: boolean) {
-      const bounce = bob ? Math.sin(performance.now() / 60) * 2 : 0;
-      const cx = x + TILE / 2;
-      const top = y + 4 + bounce;
+    function drawBuilding(cx: number, cy: number, b: Building, isVisited: boolean) {
+      const half = TILE * 0.4;
+      const rgb = hexToRgb(b.glow);
 
-      ctx.fillStyle = "#0f380f";
-      ctx.fillRect(cx - 7, top + 10, 14, 3);
+      const glowR = TILE * 0.95;
+      const gradient = ctx.createRadialGradient(cx, cy, 0, cx, cy, glowR);
+      gradient.addColorStop(0, `rgba(${rgb}, ${isVisited ? 0.28 : 0.16})`);
+      gradient.addColorStop(1, `rgba(${rgb}, 0)`);
+      ctx.fillStyle = gradient;
+      ctx.beginPath();
+      ctx.arc(cx, cy, glowR, 0, Math.PI * 2);
+      ctx.fill();
 
-      ctx.fillStyle = "#e8f8d0";
-      ctx.fillRect(cx - 6, top + 4, 12, 10);
+      roundRect(cx - half, cy - half, half * 2, half * 2, 10);
+      ctx.fillStyle = `rgba(${rgb}, 0.1)`;
+      ctx.fill();
+      ctx.strokeStyle = b.color;
+      ctx.lineWidth = 2;
+      ctx.stroke();
 
-      ctx.fillStyle = "#f4a259";
-      ctx.fillRect(cx - 5, top - 6, 10, 10);
-
-      ctx.fillStyle = "#0f380f";
-      if (facing === "down") {
-        ctx.fillRect(cx - 3, top - 2, 2, 2);
-        ctx.fillRect(cx + 1, top - 2, 2, 2);
-      } else if (facing === "up") {
-        ctx.fillRect(cx - 2, top - 4, 4, 2);
-      } else if (facing === "left") {
-        ctx.fillRect(cx - 5, top - 2, 2, 2);
-      } else if (facing === "right") {
-        ctx.fillRect(cx + 3, top - 2, 2, 2);
-      }
-
-      ctx.fillStyle = "#89c4f4";
-      if (facing === "left") ctx.fillRect(cx - 8, top + 5, 3, 6);
-      else if (facing === "right") ctx.fillRect(cx + 5, top + 5, 3, 6);
+      ctx.beginPath();
+      ctx.arc(cx, cy, isVisited ? 6 : 4, 0, Math.PI * 2);
+      ctx.fillStyle = isVisited ? b.color : `rgba(${rgb}, 0.55)`;
+      ctx.fill();
     }
 
-    const nearbyRef = { current: null as Building | null };
+    function roundRect(x: number, y: number, w: number, h: number, r: number) {
+      ctx.beginPath();
+      ctx.moveTo(x + r, y);
+      ctx.arcTo(x + w, y, x + w, y + h, r);
+      ctx.arcTo(x + w, y + h, x, y + h, r);
+      ctx.arcTo(x, y + h, x, y, r);
+      ctx.arcTo(x, y, x + w, y, r);
+      ctx.closePath();
+    }
+
+    function drawPlayer(cx: number, cy: number, facing: Dir, bounceT: number, marker: string) {
+      const pulse = 1 + Math.sin(bounceT * Math.PI) * 0.18;
+      const r = 9 * pulse;
+
+      const glow = ctx.createRadialGradient(cx, cy, 0, cx, cy, r * 3.2);
+      glow.addColorStop(0, `rgba(${marker}, 0.32)`);
+      glow.addColorStop(1, `rgba(${marker}, 0)`);
+      ctx.fillStyle = glow;
+      ctx.beginPath();
+      ctx.arc(cx, cy, r * 3.2, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.arc(cx, cy, r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgb(${marker})`;
+      ctx.fill();
+
+      const dx = facing === "left" ? -1 : facing === "right" ? 1 : 0;
+      const dy = facing === "up" ? -1 : facing === "down" ? 1 : 0;
+      const tipX = cx + dx * (r + 9);
+      const tipY = cy + dy * (r + 9);
+      const perpX = -dy;
+      const perpY = dx;
+      const baseW = 5;
+      ctx.beginPath();
+      ctx.moveTo(tipX, tipY);
+      ctx.lineTo(cx + dx * r + perpX * baseW, cy + dy * r + perpY * baseW);
+      ctx.lineTo(cx + dx * r - perpX * baseW, cy + dy * r - perpY * baseW);
+      ctx.closePath();
+      ctx.fillStyle = `rgba(${marker}, 0.85)`;
+      ctx.fill();
+    }
+
     rafRef.current = requestAnimationFrame(loop);
     return () => cancelAnimationFrame(rafRef.current);
-  }, [move, visited]);
+  }, [visited]);
 
-  const dpad = (dir: Dir) => () => {
-    player.current.facing = dir;
-    move(dir);
-  };
+  const arrow = (dir: Dir) => () => move(dir);
 
   return (
-    <div className="gb-console">
-      <div className="gb-screen-frame">
-        <div className="gb-screen">
-          <canvas ref={canvasRef} width={CANVAS_W} height={CANVAS_H} aria-label="Explore mode game screen" />
-          {nearby && !dialog && !showMenu && (
-            <div className="gb-prompt">Press A near {nearby.label}</div>
-          )}
-          {dialog && (
-            <button type="button" className="gb-dialog" onClick={advanceDialog}>
-              <strong>{dialog.title}</strong>
-              <p>{dialog.lines[dialog.index]}</p>
-              <span className="gb-dialog-more">{dialog.index + 1 < dialog.lines.length ? "▼ tap / A to continue" : "▼ tap / A to close"}</span>
-            </button>
-          )}
-          {showMenu && (
-            <div className="gb-menu">
-              <strong>System Log</strong>
-              <p>{profile.name}</p>
-              <p>Sectors scanned: {visited.size}/{BUILDINGS.length}</p>
-              <ul>
-                {BUILDINGS.map((b) => (
-                  <li key={b.id}>{visited.has(b.id) ? "✓" : "•"} {b.label}</li>
-                ))}
-              </ul>
-              <span className="gb-dialog-more">TAB / Start to close</span>
-            </div>
-          )}
-          {toast && <div className="gb-toast">{toast}</div>}
-        </div>
-      </div>
-      <div className="gb-branding">
-        <span>Firzok™</span>
-        <span>Dot Matrix</span>
-      </div>
-      <div className="gb-dpad-row">
-        <div className="gb-dpad">
-          <button type="button" className="up" aria-label="Up" onPointerDown={dpad("up")} />
-          <button type="button" className="down" aria-label="Down" onPointerDown={dpad("down")} />
-          <button type="button" className="left" aria-label="Left" onPointerDown={dpad("left")} />
-          <button type="button" className="right" aria-label="Right" onPointerDown={dpad("right")} />
-          <div className="center" />
-        </div>
-        <div className="gb-ab">
-          <button type="button" onClick={tryInteract} aria-label="A button">
-            A
+    <div className="card explore-card">
+      <h2>Explore</h2>
+      <p className="explore-intro">
+        Walk the station and interact with each module to read that section — or just scroll the classic site.
+      </p>
+
+      <div className="explore-viewport">
+        <canvas ref={canvasRef} width={CANVAS_W} height={CANVAS_H} aria-label="Explore mode game screen" />
+        {nearby && !dialog && !showMenu && <div className="explore-prompt">Press Enter near {nearby.label}</div>}
+        {dialog && (
+          <button type="button" className="explore-dialog" onClick={advanceDialog}>
+            <strong>{dialog.title}</strong>
+            <p>{dialog.lines[dialog.index]}</p>
+            <span className="explore-dialog-more">
+              {dialog.index + 1 < dialog.lines.length ? "continue ▸" : "close ▸"}
+            </span>
           </button>
-          <button
-            type="button"
-            aria-label="B button"
-            onClick={() => {
-              if (dialog) setDialog(null);
-              else if (showMenu) setShowMenu(false);
-              else window.portfolioSetMode?.("site");
-            }}
-          >
-            B
+        )}
+        {showMenu && (
+          <div className="explore-menu">
+            <strong>System Log</strong>
+            <p>
+              Sectors scanned: {visited.size}/{BUILDINGS.length}
+            </p>
+            <ul>
+              {BUILDINGS.map((b) => (
+                <li key={b.id}>
+                  {visited.has(b.id) ? "✓" : "•"} {b.label}
+                </li>
+              ))}
+            </ul>
+            <span className="explore-dialog-more">Tab to close</span>
+          </div>
+        )}
+        {toast && <div className="explore-toast">{toast}</div>}
+      </div>
+
+      <div className="explore-controls">
+        <div className="explore-dpad" role="group" aria-label="Move">
+          <button type="button" className="btn secondary" aria-label="Up" onPointerDown={arrow("up")}>
+            <ChevronIcon direction="up" />
+          </button>
+          <button type="button" className="btn secondary" aria-label="Left" onPointerDown={arrow("left")}>
+            <ChevronIcon direction="left" />
+          </button>
+          <button type="button" className="btn secondary" aria-label="Down" onPointerDown={arrow("down")}>
+            <ChevronIcon direction="down" />
+          </button>
+          <button type="button" className="btn secondary" aria-label="Right" onPointerDown={arrow("right")}>
+            <ChevronIcon direction="right" />
           </button>
         </div>
+        <div className="explore-actions">
+          <button type="button" className="btn primary" onClick={tryInteract}>
+            Interact
+          </button>
+          <button type="button" className="btn secondary" onClick={() => setShowMenu((v) => !v)}>
+            <ListIcon /> Log
+          </button>
+        </div>
       </div>
-      <div className="gb-startselect">
-        <button type="button" onClick={() => setShowMenu((v) => !v)}>
-          Start
-        </button>
-        <button
-          type="button"
-          onClick={() => {
-            const html = document.documentElement;
-            const next = html.getAttribute("data-theme") === "light" ? "dark" : "light";
-            html.setAttribute("data-theme", next);
-            try {
-              localStorage.setItem("theme", next);
-            } catch {}
-          }}
-        >
-          Select
-        </button>
-      </div>
+
       <p className="explore-hint">
-        Move with <kbd>WASD</kbd> / arrow keys. <kbd>Enter</kbd> or <kbd>A</kbd> to interact, <kbd>Esc</kbd> to leave,{" "}
-        <kbd>Tab</kbd> for the system log.
+        Move with <kbd>WASD</kbd> / arrow keys. <kbd>Enter</kbd> to interact, <kbd>Esc</kbd> to leave, <kbd>Tab</kbd>{" "}
+        for the system log.
       </p>
     </div>
   );
