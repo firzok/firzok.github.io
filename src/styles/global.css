@@ -84,9 +84,10 @@ a {
   height: 7px;
   border-radius: 50px;
   z-index: 100;
-  transform: translate(-50%, -50%);
+  scale: 1;
   pointer-events: none;
-  transition: transform 0.08s ease-out;
+  will-change: translate;
+  transition: scale 0.08s ease-out;
 }
 
 /* ---------- Top nav ---------- */

@@ -222,20 +222,23 @@ function initCursor() {
     return;
   }
 
-  window.addEventListener("mousemove", (event) => {
-    pointer.x = event.clientX;
-    pointer.y = event.clientY;
-    pointer.active = true;
-    customCursor.style.left = `${event.clientX}px`;
-    customCursor.style.top = `${event.clientY}px`;
-  });
+  window.addEventListener(
+    "mousemove",
+    (event) => {
+      pointer.x = event.clientX;
+      pointer.y = event.clientY;
+      pointer.active = true;
+      customCursor.style.translate = `${event.clientX - 3.5}px ${event.clientY - 3.5}px`;
+    },
+    { passive: true }
+  );
 
   window.addEventListener("mousedown", () => {
-    customCursor.style.transform = "translate(-50%, -50%) scale(1.45)";
+    customCursor.style.scale = "1.45";
   });
 
   window.addEventListener("mouseup", () => {
-    customCursor.style.transform = "translate(-50%, -50%) scale(1)";
+    customCursor.style.scale = "1";
   });
 
   window.addEventListener("mouseleave", () => (pointer.active = false));
